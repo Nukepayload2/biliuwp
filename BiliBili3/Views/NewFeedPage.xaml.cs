@@ -58,16 +58,16 @@ namespace BiliBili3.Views
         Home home;
         ObservableCollection<HomeModel> homePages;
         ToView toView;
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
+            await Task.Delay(10);
             if (e.NavigationMode == NavigationMode.New && homePages[0].home_datas?.Count == 0)
             {
                 homePages[0].Refresh();
                 homePages[1].Refresh();
                 LoadTab();
             }
-
         }
         /// <summary>
         /// 加载Tab
@@ -496,11 +496,6 @@ namespace BiliBili3.Views
             bor_height.Width = height - (height * 0.42);
         }
 
-        private void control_PointerMoved(object sender, PointerRoutedEventArgs e)
-        {
-
-        }
-
         private void btn_LoadMoreHot_Click(object sender, RoutedEventArgs e)
         {
             var model = (sender as HyperlinkButton).DataContext as HomeModel;
@@ -623,7 +618,6 @@ namespace BiliBili3.Views
                         {
                             banner_items = d.banner_item;
                             ItemsCount = d.banner_item.Count;
-
                         }
                         data.data.Remove(d);
                     }

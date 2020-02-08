@@ -1180,9 +1180,6 @@
     <PackageReference Include="HtmlAgilityPack">
       <Version>1.11.18</Version>
     </PackageReference>
-    <PackageReference Include="Microsoft.Advertising.XAML">
-      <Version>10.1811.22001</Version>
-    </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.9</Version>
     </PackageReference>
@@ -1206,9 +1203,6 @@
     </PackageReference>
     <PackageReference Include="VLC.MediaElement">
       <Version>3.1.0.1</Version>
-    </PackageReference>
-    <PackageReference Include="WindowsAppStudio.Uwp">
-      <Version>1.5.3</Version>
     </PackageReference>
     <PackageReference Include="ZXing.Net">
       <Version>0.16.5</Version>

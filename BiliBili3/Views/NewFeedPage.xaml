@@ -5,7 +5,7 @@
     xmlns:local="using:BiliBili3.Views"
     xmlns:my="using:BiliBili3"
     xmlns:pr="using:PullToRefresh.UWP"
-    xmlns:appControls="using:AppStudio.Uwp.Controls"
+    xmlns:appControls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
@@ -32,21 +32,15 @@
                 <ScrollViewer x:Name="sv" ViewChanged="sv_ViewChanged">
                     <StackPanel>
                         <Grid>
-                            <appControls:Carousel x:Name="control" Margin="8" ItemsSource="{Binding banner_items}" MaxItems="1"  AspectRatio="2" GradientOpacity="1.0" MaxHeight="240">
-                                <appControls:Carousel.ContentTemplate>
+                            <appControls:Carousel x:Name="control" Margin="8" SelectedIndex="1" ItemsSource="{Binding banner_items}">
+                                <appControls:Carousel.ItemTemplate>
                                     <DataTemplate>
                                         <HyperlinkButton Margin="8" Click="btn_banner_Click" ToolTipService.ToolTip="{Binding title}"  Padding="0" HorizontalContentAlignment="Stretch" HorizontalAlignment="Stretch">
-                                            <Image Stretch="UniformToFill" Source="{Binding image}"></Image>
+                                            <Image Stretch="Uniform" Source="{Binding image}" MaxHeight="240"></Image>
                                         </HyperlinkButton>
                                     </DataTemplate>
-                                </appControls:Carousel.ContentTemplate>
+                                </appControls:Carousel.ItemTemplate>
                             </appControls:Carousel>
-                            <appControls:Indicator x:Name="indicator" Margin="0,16"
-                                                   VerticalAlignment="Bottom"
-                                                   HorizontalAlignment="Center"
-                                                   ItemsSource="{Binding ItemsSource, ElementName=control, Mode=TwoWay}"
-                                                   SelectedIndex="{Binding SelectedIndex, ElementName=control, Mode=TwoWay}"
-                                                   ShapeMode="Ellipse" Background="WhiteSmoke"  SelectedBackground="{ThemeResource Bili-ForeColor}" PressedBackground="Gray" />
                         </Grid>
                       
                         <!--<controls:FlipViewControl Margin="8"  ItemsSource="{Binding banner_items}" IntervalSeconds="3"  FlipViewHeight="300" FlipViewWidth="1020">
