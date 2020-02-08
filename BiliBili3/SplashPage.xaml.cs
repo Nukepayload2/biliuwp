@@ -65,7 +65,7 @@ namespace BiliBili3
         StartModel m;
         protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
-            await Task.Delay(30);
+            await Task.Delay(10);
             #region
             switch (new Random().Next(1, 4))
             {
@@ -229,7 +229,7 @@ namespace BiliBili3
                         else
                         {
                             img_bg.Source = bit;
-                            //InitializedFrostedGlass(GlassHost);
+                            InitializedFrostedGlass(GlassHost);
                         }
                         img.Source = bit;
                         _url = obj.data[0].param;

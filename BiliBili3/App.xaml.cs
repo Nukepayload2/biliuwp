@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
@@ -40,7 +41,7 @@ namespace BiliBili3
 
             this.Suspending += OnSuspending;
             App.Current.UnhandledException += App_UnhandledException;
-           
+
             this.EnteredBackground += App_EnteredBackground;
             this.LeavingBackground += App_LeavingBackground;
         }
@@ -96,115 +97,31 @@ namespace BiliBili3
         /// 将在启动应用程序以打开特定文件等情况下使用。
         /// </summary>
         /// <param name="e">有关启动请求和过程的详细信息。</param>
-        protected override void OnLaunched(LaunchActivatedEventArgs e)
+        protected async override void OnLaunched(LaunchActivatedEventArgs e)
         {
             SYEngine.Core.Initialize();
             RegisterExceptionHandlingSynchronizationContext();
 #if DEBUG
             if (System.Diagnostics.Debugger.IsAttached)
             {
-                this.DebugSettings.EnableFrameRateCounter = true;
+                //this.DebugSettings.EnableFrameRateCounter = true;
             }
 #endif
-            Frame rootFrame = Window.Current.Content as Frame;
+            var preSplashPage = new PreSplashPage();
+            Window.Current.Content = preSplashPage.Content;
 
-
-
-
-
-            // 不要在窗口已包含内容时重复应用程序初始化，
-            // 只需确保窗口处于活动状态
-            if (rootFrame == null)
-            {
-
-                // 创建要充当导航上下文的框架，并导航到第一页
-                rootFrame = new Frame();
-
-                rootFrame.NavigationFailed += OnNavigationFailed;
-
-                if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
-                {
-                    //TODO: 从之前挂起的应用程序加载状态
-
-
-                }
-
-                // 将框架放在当前窗口中
-                Window.Current.Content = rootFrame;
-            }
-
-            if (e.PrelaunchActivated == false)
-            {
-
-                ApiHelper.access_key = SettingHelper.Get_Access_key();
-                UserManage.access_key = SettingHelper.Get_Access_key();
-                var par = new StartModel() { StartType = StartTypes.None };
-                if (e.Arguments.Length != 0)
-                {
-                    var d = e.Arguments.Split(',');
-                    if (d.Length > 1)
-                    {
-                        if (d[0] == "bangumi")
-                        {
-                            par.StartType = StartTypes.Bangumi;
-                            par.Par1 = d[1];
-                        }
-                        if (d[0] == "live")
-                        {
-                            par.StartType = StartTypes.Live;
-                            par.Par1 = d[1];
-                        }
-                    }
-                    else
-                    {
-                        par.StartType = StartTypes.Video;
-                        par.Par1 = e.Arguments;
-                    }
-                }
-
-                if (SettingHelper.Get_PlayerMode())
-                {
-                    rootFrame.Navigate(typeof(PlayerModePage));
-                }
-                else
-                {
-                    if (rootFrame.Content == null)
-                    {
-                        rootFrame.Navigate(typeof(SplashPage), par);
-                    }
-                    else
-                    {
-                        if (par.StartType == StartTypes.Video)
-                        {
-                            MessageCenter.SendNavigateTo(NavigateMode.Info, typeof(VideoViewPage), par.Par1);
-                        }
-                        if (par.StartType == StartTypes.Bangumi)
-                        {
-                            MessageCenter.SendNavigateTo(NavigateMode.Info, typeof(BanInfoPage), par.Par1);
-                        }
-                        if (par.StartType == StartTypes.Live)
-                        {
-                            MessageCenter.SendNavigateTo(NavigateMode.Info, typeof(LiveRoomPage), par.Par1);
-                        }
-
-                    }
-
-
-                }
-
-                // 确保当前窗口处于活动状态
-
-
-            }
+            // 确保当前窗口处于活动状态
             Window.Current.Activate();
-        }
+
+            await preSplashPage.LoadAsync(e);
+        } // End Sub
 
         /// <summary>
         /// 导航到特定页失败时调用
         /// </summary>
         ///<param name="sender">导航失败的框架</param>
         ///<param name="e">有关导航失败的详细信息</param>
-        void OnNavigationFailed(object sender, NavigationFailedEventArgs e)
+        internal void OnNavigationFailed(object sender, NavigationFailedEventArgs e)
         {
             throw new Exception("Failed to load Page " + e.SourcePageType.FullName);
         }
@@ -412,7 +329,7 @@ namespace BiliBili3
 
         protected override void OnFileActivated(FileActivatedEventArgs args)
         {
-            
+
             RegisterExceptionHandlingSynchronizationContext();
             StartModel par = new StartModel() { StartType = StartTypes.File, Par3 = args.Files };
             Frame rootFrame = Window.Current.Content as Frame;
