@@ -61,10 +61,11 @@ namespace BiliBili3
             titleBar.InactiveBackgroundColor = bg;
             titleBar.ButtonInactiveBackgroundColor = bg;
         }
-        DispatcherTimer timer;
+        //DispatcherTimer timer;
         StartModel m;
         protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
+            await Task.Delay(30);
             #region
             switch (new Random().Next(1, 4))
             {
@@ -77,63 +78,73 @@ namespace BiliBili3
                 case 3:
                     txt_Load.Text = "自由、平等、公正、法治";
                     break;
-                
+
                 default:
                     break;
             }
-            try
+
+            Func<Task> tskLoadDelayed = async () =>
             {
-                await RegisterBackgroundTask();
-                DownloadHelper2.LoadDowned();
-                ApiHelper.SetRegions();
-                LiveRoom.GetTitleItems();
-                //ApiHelper.SetEmojis();
-            }
-            catch (Exception)
-            {
-            }
+                try
+                {
+                    await Task.Delay(10);
+                    await RegisterBackgroundTask();
+                    await Task.WhenAll(
+                        DownloadHelper2.LoadDowned(),
+                        ApiHelper.SetRegions(),
+                        LiveRoom.GetTitleItems());
+                }
+                catch (Exception)
+                {
+                }
+            };
+            _ = tskLoadDelayed.Invoke();
+
             #endregion
 
             //await Task.Delay(2000); 
-             m = e.Parameter as StartModel;
-            timer = new DispatcherTimer();
-            timer.Interval = new TimeSpan(0, 0, 1);
-            timer.Tick += Timer_Tick;
-            timer.Start();
-            if (m.StartType== StartTypes.None&&SettingHelper.Get_LoadSplash())
-            {
-                await GetResults();
-              
-            }
-            else
-            {
-               // await Task.Delay(2000);
-               // this.Frame.Navigate(typeof(MainPage), m);
-            }
+            m = e.Parameter as StartModel;
+            //timer = new DispatcherTimer();
+            //timer.Interval = TimeSpan.FromMilliseconds(500);
+            //timer.Tick += Timer_Tick;
+            //timer.Start();
 
-         
-
-
-        }
-        int i = 1;
-        int maxnum = 3;
-        private void Timer_Tick(object sender, object e)
-        {
-            if (i!= maxnum)
+            Func<Task> tskLoadState2Tsk1Delayed = async () =>
             {
-                i++;
-            }
-            else
+                await Task.Delay(500);
+                Frame.Navigate(typeof(MainPage), m);
+            };
+            
+            Func<Task> tskLoadState2Tsk2Delayed = async () =>
             {
-                this.Frame.Navigate(typeof(MainPage), m);
-              
-            }
+                if (m.StartType == StartTypes.None && SettingHelper.Get_LoadSplash())
+                {
+                    await RefreshImageAsync();
+                }
+            };
+
+            await Task.WhenAll(tskLoadState2Tsk1Delayed.Invoke(),
+                tskLoadState2Tsk2Delayed.Invoke());
         }
-        protected override void OnNavigatedFrom(NavigationEventArgs e)
-        {
-            timer.Stop();
-            timer = null;
-        }
+        //int i = 1;
+        //int maxnum = 3;
+        //private void Timer_Tick(object sender, object e)
+        //{
+        //    //if (i!= maxnum)
+        //    //{
+        //    //    i++;
+        //    //}
+        //    //else
+        //    //{
+        //    //    this.Frame.Navigate(typeof(MainPage), m);
+        //    //}
+        //    this.Frame.Navigate(typeof(MainPage), m);
+        //}
+        //protected override void OnNavigatedFrom(NavigationEventArgs e)
+        //{
+        //    timer.Stop();
+        //    timer = null;
+        //}
         private void InitializedFrostedGlass(UIElement glassHost)
         {
             Visual hostVisual = ElementCompositionPreview.GetElementVisual(glassHost);
@@ -178,7 +189,7 @@ namespace BiliBili3
             glassVisual.StartAnimation("Size", bindSizeAnimation);
         }
 
-        private async Task GetResults()
+        private async Task RefreshImageAsync()
         {
             try
             {
@@ -186,19 +197,19 @@ namespace BiliBili3
                 bool pc = SettingHelper.IsPc();
                 if (pc)
                 {
-                   
+
                     img.Stretch = Stretch.Uniform;
                     url = "http://app.bilibili.com/x/splash?plat=0&build=414000&channel=master&width=1920&height=1080";
                 }
-               
+
                 string Result = await WebClientClass.GetResults(new Uri(url));
                 LoadModel obj = JsonConvert.DeserializeObject<LoadModel>(Result);
 
-                if (obj.code== 0)
+                if (obj.code == 0)
                 {
-                    if (obj.data.Count!=0)
+                    if (obj.data.Count != 0)
                     {
-                        var buff= await WebClientClass.GetBuffer(new Uri(obj.data[0].image));
+                        var buff = await WebClientClass.GetBuffer(new Uri(obj.data[0].image));
                         BitmapImage bit = new BitmapImage();
                         await bit.SetSourceAsync(buff.AsStream().AsRandomAccessStream());
                         if (!pc)
@@ -218,23 +229,23 @@ namespace BiliBili3
                         else
                         {
                             img_bg.Source = bit;
-                            InitializedFrostedGlass(GlassHost);
+                            //InitializedFrostedGlass(GlassHost);
                         }
                         img.Source = bit;
                         _url = obj.data[0].param;
-                        maxnum = 5;
+                        //maxnum = 5;
                         //await Task.Delay(3000);
                         //this.Frame.Navigate(typeof(MainPage), m);
                     }
                     else
                     {
-                       // await Task.Delay(2000);
-                       
+                        // await Task.Delay(2000);
+
                     }
                 }
                 else
                 {
-                   // await Task.Delay(2000);
+                    // await Task.Delay(2000);
                     //this.Frame.Navigate(typeof(MainPage), m);
                 }
 
@@ -242,13 +253,13 @@ namespace BiliBili3
             }
             catch (Exception)
             {
-               // await Task.Delay(2000);
+                // await Task.Delay(2000);
                 //this.Frame.Navigate(typeof(MainPage), m);
             }
             finally
             {
 
-               
+
             }
 
         }
@@ -355,6 +366,6 @@ namespace BiliBili3
 
         #endregion
 
-      
+
     }
 }

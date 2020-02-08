@@ -6,7 +6,6 @@
       xmlns:m="using:BiliBili3"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:UI="using:Microsoft.Advertising.WinRT.UI"
     mc:Ignorable="d">
 
     <Grid Background="#00E9E9E9">
@@ -133,18 +132,11 @@
                 </GridViewItem>
                 <GridViewItem  Margin="20" Foreground="{ThemeResource Bili-ForeColor}" >
                     <StackPanel Tag="setting">
-
                         <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE115;" FontSize="24" Margin="0 5"/>
                         <TextBlock>应用设置</TextBlock>
                     </StackPanel>
                 </GridViewItem>
-
             </GridView>
         </Grid>
-        <Grid x:Name="gridAd" Grid.RowSpan="2" VerticalAlignment="Bottom" HorizontalAlignment="Center">
-            <UI:AdControl x:Name="adControl" ApplicationId="9n7c87236453"  AdUnitId="1100055044"  Height="50" Width="320"  AdRefreshed="AdControl_AdRefreshed"/>
-            <HyperlinkButton x:Name="btnCloseAd" Visibility="Collapsed" Click="BtnCloseAd_Click" Width="24" Padding="0" Height="24" HorizontalAlignment="Right" VerticalAlignment="Top">x</HyperlinkButton>
-        </Grid>
-        
     </Grid>
 </Page>

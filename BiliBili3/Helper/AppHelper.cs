@@ -18,10 +18,7 @@ namespace BiliBili3.Helper
             {
                 var results = await WebClientClass.GetResultsUTF8Encode(new Uri("http://pic.iliili.cn/bilimessageV3.json?rnd=" + ApiHelper.GetTimeSpan_2));
                 DeveloperMessageModel messageModel = JsonConvert.DeserializeObject<DeveloperMessageModel>(results);
-                if (!messageModel.showAD)
-                {
-                    MessageCenter.SendHideAd();
-                }
+
                 if (Get_FirstShowMessage(messageModel.messageId) && messageModel.enddate > DateTime.Now)
                 {
                     var cd = new ContentDialog();

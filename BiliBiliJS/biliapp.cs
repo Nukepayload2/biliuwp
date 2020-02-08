@@ -20,7 +20,7 @@ namespace BiliBiliJS
 
             md = new MessageDialog(message);
 
-            md.ShowAsync();
+            _ = md.ShowAsync();
         }
         public event EventHandler<string> ValidateLoginEvent;
         public void ValidateLogin(string data)
@@ -29,8 +29,6 @@ namespace BiliBiliJS
             {
                 ValidateLoginEvent(this, data);
             }
-
-
         }
         public event EventHandler<string> CloseBrowserEvent;
         public void CloseBrowser()
@@ -39,12 +37,6 @@ namespace BiliBiliJS
             {
                 CloseBrowserEvent(this,"");
             }
-
-
         }
-
-       
     }
-
-
 }

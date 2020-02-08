@@ -5,11 +5,9 @@
     xmlns:local="using:BiliBili3"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
- 
-    
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource Bili-Background}">
+    <Grid>
         <Grid>
             <StackPanel VerticalAlignment="Center">
                 <Image x:Name="load_img" Source="ms-appx:///Assets/Splash.png" MaxWidth="350" ></Image>
@@ -20,11 +18,11 @@
                 <TextBlock x:Name="txt_Load" HorizontalAlignment="Center"  Foreground="Gray" ></TextBlock>
             </StackPanel>
         </Grid>
+        <!--初始屏幕不应包含过于占用资源的内容-->
         <Grid x:Name="grid_Load" >
             <Image x:Name="img_bg"  Stretch="Fill" Tapped="grid_Load_Tapped"  />
             <Canvas x:Name="GlassHost" Grid.ColumnSpan="2" />
             <Image x:Name="img"  Stretch="Uniform" Tapped="grid_Load_Tapped"  />
-            
         </Grid>
     </Grid>
 </Page>

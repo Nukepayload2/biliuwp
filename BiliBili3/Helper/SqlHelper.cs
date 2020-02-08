@@ -1,7 +1,4 @@
 ﻿using SQLite;
-using SQLite.Net;
-using SQLite.Net.Attributes;
-using SQLite.Net.Platform.WinRT;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -22,7 +19,7 @@ namespace BiliBili3
         public static SQLiteConnection GetDbConnection()
         {
             // 连接数据库，如果数据库文件不存在则创建一个空数据库。
-            var conn = new SQLiteConnection(new SQLitePlatformWinRT(), DbPath);
+            var conn = new SQLiteConnection(DbPath);
   
             conn.CreateTable<HistoryClass>();
             conn.CreateTable<ViewPostHelperClass>();
