@@ -110,15 +110,15 @@
                                         </StackPanel>
                                     </ComboBoxItem>
                                 </ComboBox>
-                               
+
                             </Grid>
                             <Grid Margin="0 10 0 0" x:Name="CustomBg">
                                 <TextBlock Foreground="Gray" VerticalAlignment="Center">自定义背景图</TextBlock>
                                 <ToggleSwitch  x:Name="sw_CustomBg" Toggled="sw_CustomBg_Toggled" HorizontalAlignment="Right" Style="{StaticResource ToggleSwitchStyle1}" Margin="10 0"></ToggleSwitch>
-                            
+
 
                             </Grid>
-                            
+
                             <Grid x:Name="grid_CustomBg" Visibility="Visible">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition/>
@@ -256,7 +256,7 @@
                                 <ToggleSwitch  x:Name="sw_RefreshButton" Toggled="sw_RefreshButton_Toggled" HorizontalAlignment="Right" Style="{StaticResource ToggleSwitchStyle1}" Margin="10 0"></ToggleSwitch>
 
                             </Grid>
-                         
+
                             <Grid Margin="0 10 0 0">
                                 <TextBlock Foreground="Gray" VerticalAlignment="Center">手机横屏隐藏状态栏</TextBlock>
                                 <ToggleSwitch x:Name="sw_HideStatus" Toggled="sw_HideStatus_Toggled"  HorizontalAlignment="Right" Style="{StaticResource ToggleSwitchStyle1}" Margin="10 0"></ToggleSwitch>
@@ -267,7 +267,7 @@
                                 <ToggleSwitch x:Name="sw_LoadSe" Toggled="sw_LoadSe_Toggled" HorizontalAlignment="Right" Style="{StaticResource ToggleSwitchStyle1}" Margin="10 0"></ToggleSwitch>
 
                             </Grid>
-                           
+
                             <Grid Margin="0 10 0 0" Visibility="Collapsed">
                                 <TextBlock Foreground="Gray" VerticalAlignment="Center">关闭应用全部广告(重启生效)</TextBlock>
                                 <ToggleSwitch  x:Name="sw_CloseAD" Toggled="sw_CloseAD_Toggled" HorizontalAlignment="Right" Style="{StaticResource ToggleSwitchStyle1}" Margin="10 0"></ToggleSwitch>
@@ -308,7 +308,7 @@
                                 </ComboBox>
 
                             </Grid>
-                         
+
                             <!--<TextBlock Foreground="Gray" FontSize="14" TextWrapping="Wrap" Visibility="Collapsed">*如果格式选择FLV,播放器一些功能将不受支持，如后台播放、倍速播放等</TextBlock>
                             <TextBlock Foreground="Gray" FontSize="14" TextWrapping="Wrap" IsTextSelectionEnabled="True" Visibility="Visible">*此版本无法使用FLV，请到https://nsapp.win下载</TextBlock>-->
                             <Grid Margin="0 10 0 0" Visibility="Collapsed">
@@ -347,11 +347,11 @@
                                 </ComboBox>
 
                             </Grid>
-                          
+
                             <TextBlock FontSize="16" Margin="0 10 0 0">播放选项</TextBlock>
                             <Grid Margin="0 10 0 0" Visibility="Collapsed">
                                 <TextBlock Foreground="Gray" VerticalAlignment="Center">播放自动全屏</TextBlock>
-                              
+
 
                             </Grid>
                             <Grid Margin="0 10 0 0" Visibility="Collapsed">
@@ -361,7 +361,7 @@
                                     <ComboBoxItem Content="原生"/>
                                     <ComboBoxItem Content="HTML5"/>
                                     <ComboBoxItem Content="询问"/>
-                                    
+
                                 </ComboBox>
                             </Grid>
                             <Grid Margin="0 10 0 0">
@@ -416,9 +416,9 @@
                                 <ToggleSwitch x:Name="sw_H5" Toggled="sw_H5_Toggled" HorizontalAlignment="Right" Style="{StaticResource ToggleSwitchStyle1}" Margin="10 0"></ToggleSwitch>
 
                             </Grid>
-                          
-                         
-                           
+
+
+
                         </StackPanel>
                     </StackPanel>
                 </ScrollViewer>
@@ -433,14 +433,14 @@
                             <TextBlock FontSize="16" Margin="0 10 0 0">弹幕屏蔽</TextBlock>
                             <StackPanel Orientation="Horizontal">
                                 <HyperlinkButton Padding="0 10" x:Name="btn_GoManage" Click="btn_GoManage_Click">进入管理</HyperlinkButton>
-                              
+
                             </StackPanel>
                             <TextBlock FontSize="16" Margin="0 10 0 0">弹幕</TextBlock>
-                          
+
                             <Grid Margin="0 10 0 0" >
                                 <TextBlock Foreground="Gray" VerticalAlignment="Center">弹幕字体</TextBlock>
                                 <ComboBox x:Name="cb_Font" SelectionChanged="cb_Font_SelectionChanged"  Margin="2 0" HorizontalAlignment="Right"  Grid.Column="0"  VerticalAlignment="Center" Background="#00424959"  BorderThickness="0" Style="{StaticResource ComboBoxStyle1}" >
-                                 
+
                                 </ComboBox>
                             </Grid>
                             <Grid Margin="0 10 0 0" Visibility="Collapsed">
@@ -479,7 +479,7 @@
                                         <TextBlock TextWrapping="Wrap"  FontWeight="Bold" FontSize="25" Foreground="White">预览弹幕2333</TextBlock>
                                     </controls:DropShadowPanel>
                                 </Grid>
-                                
+
                             </StackPanel>
 
                             <Grid Margin="0 10 0 0">
@@ -491,7 +491,7 @@
                                 <TextBlock Foreground="Gray" VerticalAlignment="Center">弹幕加粗</TextBlock>
                                 <ToggleSwitch x:Name="sw_BoldDanmu" Toggled="sw_BoldDanmu_Toggled" HorizontalAlignment="Right" Style="{StaticResource ToggleSwitchStyle1}" Margin="10 0"></ToggleSwitch>
                             </Grid>
-                            
+
                             <Grid Margin="0 10 0 0">
                                 <TextBlock Foreground="Gray" VerticalAlignment="Center">重复弹幕合并</TextBlock>
                                 <ToggleSwitch x:Name="sw_MergeDanmu" Toggled="sw_MergeDanmu_Toggled" HorizontalAlignment="Right" Style="{StaticResource ToggleSwitchStyle1}" Margin="10 0"></ToggleSwitch>
@@ -532,7 +532,7 @@
                     </StackPanel>
                 </ScrollViewer>
             </PivotItem>
-            
+
             <PivotItem Margin="0">
                 <PivotItem.Header>
                     <TextBlock FontSize="16">下载/通知</TextBlock>
@@ -563,7 +563,7 @@
                                 <TextBlock Foreground="Gray" VerticalAlignment="Center">自定义下载路径</TextBlock>
                                 <ToggleSwitch x:Name="sw_CustomPath" Toggled="sw_CustomPath_Toggled" HorizontalAlignment="Right" Style="{StaticResource ToggleSwitchStyle1}" Margin="10 0"></ToggleSwitch>
                             </Grid>
-                           
+
                             <Grid x:Name="grid_CustomDownPath" Visibility="Visible">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition/>
@@ -601,7 +601,7 @@
                             <Grid Margin="0 10 0 0">
                                 <TextBlock Foreground="Gray" VerticalAlignment="Center">推送番剧更新通知</TextBlock>
                                 <ToggleSwitch x:Name="sw_FJ" Toggled="sw_FJ_Toggled" HorizontalAlignment="Right" Style="{StaticResource ToggleSwitchStyle1}" Margin="10 0"></ToggleSwitch>
- 
+
                             </Grid>
                         </StackPanel>
                     </StackPanel>
@@ -615,7 +615,7 @@
                     <StackPanel Margin="10">
                         <StackPanel Margin="0 0 0 10" Visibility="Collapsed">
                             <TextBlock FontSize="16">黑科技</TextBlock>
-                           
+
                             <Grid Margin="0 10 0 0">
                                 <TextBlock Foreground="Gray" VerticalAlignment="Center">伪装香港用户(看港澳专供番)</TextBlock>
                                 <ToggleSwitch  x:Name="tw_MNGA" Toggled="tw_MNGA_Toggled" HorizontalAlignment="Right" Style="{StaticResource ToggleSwitchStyle1}" Margin="10 0"></ToggleSwitch>
@@ -637,7 +637,7 @@
                             <TextBlock>
                                   <Run x:Name="txtBPState"/> 授权BiliPlus(可以解除部分地区限制视频)
                             </TextBlock>
-                          </HyperlinkButton>
+                        </HyperlinkButton>
                         <Grid Margin="0 10 0 0">
                             <TextBlock Foreground="Gray" VerticalAlignment="Center">优先使用BiliPlus</TextBlock>
                             <ToggleSwitch  x:Name="sw_PriorityBiliPlus" Toggled="Sw_PriorityBiliPlus_Toggled" HorizontalAlignment="Right" Style="{StaticResource ToggleSwitchStyle1}" Margin="10 0"></ToggleSwitch>
@@ -687,7 +687,7 @@
                                 <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center">771102271</TextBlock>
 
                             </Grid>
-                            
+
                         </HyperlinkButton>
                         <HyperlinkButton Click="HyperlinkButton_Click" Tag="xiaoyaocz@52uwp.com" HorizontalAlignment="Stretch" Foreground="{ThemeResource Bili-FontColor}"  HorizontalContentAlignment="Stretch" Padding="0">
                             <Grid Margin="0 10 0 0">
@@ -706,7 +706,7 @@
                             </Grid>
 
                         </HyperlinkButton>
-                       
+
                         <TextBlock FontSize="18" Margin="0 10 0 0">赞助</TextBlock>
 
                         <HyperlinkButton Click="HyperlinkButton_Click_1"  HorizontalAlignment="Stretch" Foreground="{ThemeResource Bili-FontColor}" HorizontalContentAlignment="Stretch" Padding="0">
@@ -721,12 +721,34 @@
                         <TextBlock Foreground="Gray" VerticalAlignment="Center" TextWrapping="Wrap" Margin="0 10 0 0" >1、本程序为哔哩哔哩动画第三方客户端，所有资源均来自哔哩哔哩动画</TextBlock>
                         <TextBlock Foreground="Gray" VerticalAlignment="Center"  TextWrapping="Wrap" Margin="0 10 0 0">2、本程序仅供学习交流编程技术使用</TextBlock>
                         <TextBlock Foreground="Gray" VerticalAlignment="Center" TextWrapping="Wrap" Margin="0 10 0 0">3、如果侵犯您的合法权益，请及时联系本人以第一时间删除</TextBlock>
-                       
 
-                        
+
+
                         <TextBlock FontSize="18" Margin="0 10 0 0">感谢</TextBlock>
                         <TextBlock Foreground="Gray" VerticalAlignment="Center" Margin="0 10 0 0" TextWrapping="Wrap">感谢以下小伙伴在开发过程中给予的各种帮助(排名不分先后)</TextBlock>
                         <TextBlock Foreground="Gray" VerticalAlignment="Center" Margin="0 10 0 0" TextWrapping="Wrap">旋风小伙(微页开发者)、Dearest匿爱、座子狮(酷狗音乐第三方UWP开发者)、Loyie King(Key4WiFi开发者)、CodeForCSharp、ThomasWFan</TextBlock>
+                        <TextBlock FontSize="18" Margin="0 10 0 0">关于 14393 兼容版的说明</TextBlock>
+                        <RichTextBlock Margin="0 10 0 0">
+                            <Paragraph Foreground="Gray">
+                                <Run>由 Nukepayload2 基于 3.9.58 版修改而来。如果发现 bug 请在</Run>
+                                <Hyperlink NavigateUri="https://gitee.com/nukepayload2/biliuwp_bak/releases">https://gitee.com/nukepayload2/biliuwp_bak/releases
+                                </Hyperlink>
+                                <Run>尝试最新版本。如果问题持续存在，请报告到</Run>
+                                <Hyperlink NavigateUri="https://github.com/Nukepayload2/biliuwp_14393/issues">https://github.com/Nukepayload2/biliuwp_14393/issues
+                                </Hyperlink>
+                                <Run>或者</Run>
+                                <Hyperlink NavigateUri="https://gitee.com/nukepayload2/biliuwp_bak/issues">https://gitee.com/nukepayload2/biliuwp_bak/issues
+                                </Hyperlink>
+                                <Run>。</Run>
+                            </Paragraph>
+                        </RichTextBlock>
+                        <TextBlock Foreground="Gray" VerticalAlignment="Center" Margin="0 10 0 0">此版本的修改大致如下:</TextBlock>
+                        <TextBlock Foreground="Gray" VerticalAlignment="Center" Margin="0 10 0 0">- 更改最低版本到 14393, 最高版本到 18362</TextBlock>
+                        <TextBlock Foreground="Gray" VerticalAlignment="Center" Margin="0 10 0 0">- 移除了广告和不必要的第三方依赖</TextBlock>
+                        <TextBlock Foreground="Gray" VerticalAlignment="Center" Margin="0 10 0 0">- 调整了应用程序加载策略，缩短加载时间</TextBlock>
+                        <TextBlock Foreground="Gray" VerticalAlignment="Center" Margin="0 10 0 0">- 调整了继续上次播放按钮消失的时机，不点它会等 5 秒才消失</TextBlock>
+                        <TextBlock Foreground="Gray" VerticalAlignment="Center" Margin="0 10 0 0">- 调整了 Danmu 播放器加载失败通知策略，仅会报告一次错误</TextBlock>
+
                         <TextBlock FontSize="18" Margin="0 10 0 0">引用及参考</TextBlock>
                         <TextBlock Foreground="Gray" VerticalAlignment="Center" IsTextSelectionEnabled="True"  TextWrapping="Wrap" Margin="0 10 0 0">UWPCommunityToolkit(https://github.com/Microsoft/UWPCommunityToolkit)</TextBlock>
                         <TextBlock Foreground="Gray" VerticalAlignment="Center" IsTextSelectionEnabled="True"  TextWrapping="Wrap">PullToRefresh.UWP(https://github.com/MS-UAP/PullToRefresh.UWP)</TextBlock>
@@ -750,12 +772,12 @@
                 <ScrollViewer VerticalScrollMode="Auto" Style="{StaticResource ScrollViewerStyle1}">
                     <StackPanel  Margin="10">
                         <TextBlock TextWrapping="Wrap" x:Name="txt_Ver"></TextBlock>
-                        
+
                     </StackPanel>
                 </ScrollViewer>
             </PivotItem>
         </Pivot>
         <ProgressRing Width="56" Height="56" x:Name="pr_Load" Grid.RowSpan="2" IsActive="True" Visibility="Collapsed"></ProgressRing>
-       
+
     </Grid>
 </Page>

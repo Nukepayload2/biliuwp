@@ -207,11 +207,11 @@ namespace BiliBili3.Pages
             MessageCenter.SendNavigateTo(NavigateMode.Play, typeof(LiveRoomPage), (e.ClickedItem as RoomListItem).roomid);
         }
 
-        private void btn_LoadMore_TJ_Click(object sender, RoutedEventArgs e)
+        private async void btn_LoadMore_TJ_Click(object sender, RoutedEventArgs e)
         {
             if (!_TJLoading)
             {
-                GetTJ();
+                await GetTJ();
             }
         }
 
@@ -276,13 +276,13 @@ namespace BiliBili3.Pages
         }
 
     
-        private void b_btn_Refresh_Click(object sender, RoutedEventArgs e)
+        private async void b_btn_Refresh_Click(object sender, RoutedEventArgs e)
         {
             switch (pivot.SelectedIndex)
             {
                 case 0:
                     _TJPage = 1;
-                    GetTJ();
+                    await GetTJ();
                     break;
                 case 1:
                     _NewPage = 1;

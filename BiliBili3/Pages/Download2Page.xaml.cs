@@ -464,7 +464,7 @@ namespace BiliBili3.Pages
                     var d = SqlHelper.GetDownload(data.guid);
                     await DownloadHelper2.DeleteFolder(d.aid, d.cid, d.mode);
 
-                    LoadDowning();
+                   await  LoadDowning();
                 }
 
             }

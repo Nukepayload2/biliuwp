@@ -104,7 +104,7 @@ namespace BiliBili3
 #if DEBUG
             if (System.Diagnostics.Debugger.IsAttached)
             {
-                //this.DebugSettings.EnableFrameRateCounter = true;
+                this.DebugSettings.EnableFrameRateCounter = true;
             }
 #endif
             var preSplashPage = new PreSplashPage();
@@ -190,7 +190,7 @@ namespace BiliBili3
                             IsTextSelectionEnabled = true
                         };
                         contentDialog.Content = textBlock;
-                        contentDialog.ShowAsync();
+                        await contentDialog.ShowAsync();
                     }
                 }
                 else

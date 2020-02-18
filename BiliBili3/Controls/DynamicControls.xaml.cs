@@ -998,7 +998,6 @@ namespace BiliBili3.Views
                 }
                 catch (Exception ex)
                 {
-
                     return new TextBlock()
                     {
                         Text = dynamic,

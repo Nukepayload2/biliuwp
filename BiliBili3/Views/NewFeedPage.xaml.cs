@@ -64,8 +64,7 @@ namespace BiliBili3.Views
             await Task.Delay(10);
             if (e.NavigationMode == NavigationMode.New && homePages[0].home_datas?.Count == 0)
             {
-                homePages[0].Refresh();
-                homePages[1].Refresh();
+                await Task.WhenAll(homePages[0].Refresh(), homePages[1].Refresh());
                 LoadTab();
             }
         }
@@ -133,7 +132,7 @@ namespace BiliBili3.Views
         }
         
 
-        private void sv_ViewChanged(object sender, ScrollViewerViewChangedEventArgs e)
+        private async void sv_ViewChanged(object sender, ScrollViewerViewChangedEventArgs e)
         {
             if ((sender as ScrollViewer).VerticalOffset >= ((sender as ScrollViewer).ScrollableHeight - 200))
             {
@@ -145,7 +144,7 @@ namespace BiliBili3.Views
                         case HomeDisplayMode.Home:
                             if (!model._loading)
                             {
-                                model.LoadHome();
+                                await model.LoadHome();
                             }
                             break;
                         case HomeDisplayMode.Hot:
@@ -168,9 +167,9 @@ namespace BiliBili3.Views
 
 
 
-        private void b_btn_Refresh_Click(object sender, RoutedEventArgs e)
+        private async void b_btn_Refresh_Click(object sender, RoutedEventArgs e)
         {
-            ((sender as AppBarButton).DataContext as HomeModel).Refresh();
+            await ((sender as AppBarButton).DataContext as HomeModel).Refresh();
         }
 
         private async void pivot_home_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -353,11 +352,11 @@ namespace BiliBili3.Views
 
 
 
-        private void btn_LoadMore_Click(object sender, RoutedEventArgs e)
+        private async void btn_LoadMore_Click(object sender, RoutedEventArgs e)
         {
             if (!homePages[0]._loading)
             {
-                homePages[0].LoadHome();
+                await homePages[0].LoadHome();
             }
         }
 
@@ -724,13 +723,13 @@ namespace BiliBili3.Views
         /// <summary>
         /// 刷新
         /// </summary>
-        public void Refresh()
+        public async Task Refresh()
         {
             if (mode == HomeDisplayMode.Home)
             {
                 banner_items = null;
                 home_datas = null;
-                LoadHome();
+                await LoadHome();
             }
             if (mode == HomeDisplayMode.Hot)
             {
@@ -739,7 +738,7 @@ namespace BiliBili3.Views
             }
             if (mode == HomeDisplayMode.Topic)
             {
-                LoadTabData();
+                await LoadTabData();
             }
         }
 

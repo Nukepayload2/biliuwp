@@ -1159,9 +1159,9 @@ namespace BiliBili3.Pages.Live
         /// <param name="e"></param>
         private async void media_MediaFailed(object sender, VLC.MediaFailedRoutedEventArgs e)
         {
-            await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+            await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, async () =>
              {
-                 new MessageDialog("无法加载直播").ShowAsync();
+                 await new MessageDialog("无法加载直播").ShowAsync();
              });
 
         }

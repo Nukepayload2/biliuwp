@@ -957,9 +957,9 @@ namespace BiliBili3.Pages
             cd.Visibility = Visibility.Collapsed;
         }
 
-        private void grid_Error_Tapped(object sender, TappedRoutedEventArgs e)
+        private async void grid_Error_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            LoadRoomInfo();
+            await LoadRoomInfo();
         }
 
         private void pivot_SelectionChanged(object sender, SelectionChangedEventArgs e)

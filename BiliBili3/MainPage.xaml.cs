@@ -409,7 +409,7 @@ namespace BiliBili3
                                 IsTextSelectionEnabled = true
                             };
                             contentDialog.Content = textBlock;
-                            contentDialog.ShowAsync();
+                            await contentDialog.ShowAsync();
                         }
                         break;
                     default:

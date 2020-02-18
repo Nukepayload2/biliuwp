@@ -285,7 +285,7 @@ namespace BiliBili3.Helper
                 StorageFile sefile = await PartFolder.CreateFileAsync(m.videoinfo.mid + ".json", CreationCollisionOption.OpenIfExists);
                 await FileIO.WriteTextAsync(sefile, JsonConvert.SerializeObject(m.videoinfo));
                 await SetGUIDFile(m);
-                downloadOp.StartAsync();
+                await downloadOp.StartAsync();
 
             }
             catch (Exception ex)
@@ -381,7 +381,7 @@ namespace BiliBili3.Helper
                 StorageFile sefile = await PartFolder.CreateFileAsync(m.videoinfo.mid + ".json", CreationCollisionOption.OpenIfExists);
                 await FileIO.WriteTextAsync(sefile, JsonConvert.SerializeObject(m.videoinfo));
                 await SetGUIDFile(m);
-                downloadOp.StartAsync();
+                await downloadOp.StartAsync();
 
             }
             catch (Exception ex)

@@ -578,10 +578,10 @@ namespace BiliBili3.Pages
             }
         }
 
-        private void Video_Refresh_Click(object sender, RoutedEventArgs e)
+        private async void Video_Refresh_Click(object sender, RoutedEventArgs e)
         {
             pivot.SelectedIndex = 0;
-            LoadVideo();
+            await LoadVideo();
         }
 
         private async void btn_GoBrowser_Click(object sender, RoutedEventArgs e)
@@ -682,7 +682,7 @@ namespace BiliBili3.Pages
                     if ((int)json["code"] == 0)
                     {
                         Utils.ShowMessageToast("收藏成功！", 2000);
-                        GetFavBox();
+                        await GetFavBox();
                     }
                     else
                     {
