@@ -48,7 +48,7 @@
                                                    SelectedIndex="{Binding SelectedIndex, ElementName=control, Mode=TwoWay}"
                                                    ShapeMode="Ellipse" Background="WhiteSmoke"  SelectedBackground="{ThemeResource Bili-ForeColor}" PressedBackground="Gray" />-->
                         </Grid>
-                      
+
                         <!--<controls:FlipViewControl Margin="8"  ItemsSource="{Binding banner_items}" IntervalSeconds="3"  FlipViewHeight="300" FlipViewWidth="1020">
 
                             <controls:FlipViewControl.ItemTemplate>
@@ -82,40 +82,40 @@
                             <GridView.ItemTemplate>
                                 <DataTemplate x:DataType="homemodels:HomeDataModel">
 
-                                        <Grid  RightTapped="Border_RightTapped" Holding="Border_Holding"  Background="{ThemeResource Bili-List-Background}">
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition/>
-                                                <RowDefinition Height="48"/>
-                                                <RowDefinition Height="24"/>
-                                            </Grid.RowDefinitions>
-                                            <Grid>
-                                                <Image MinHeight="100" Source="ms-appx:///Assets/Logo/PI160_100.png" Stretch="UniformToFill"></Image>
-                                                <Image MinHeight="100" Source="{x:Bind Cover}" Stretch="UniformToFill"></Image>
-                                                <Grid VerticalAlignment="Bottom" Padding="4" Visibility="{Binding showCoverText}">
-                                                    <Grid.Background>
-                                                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                                            <GradientStop Color="#CC000005" Offset="0.993"/>
-                                                            <GradientStop Color="#00000000" Offset="0"/>
-                                                        </LinearGradientBrush>
-                                                    </Grid.Background>
+                                    <Grid  RightTapped="Border_RightTapped" Holding="Border_Holding"  Background="{ThemeResource Bili-List-Background}">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition/>
+                                            <RowDefinition Height="48"/>
+                                            <RowDefinition Height="24"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid>
+                                            <Image MinHeight="100" Source="ms-appx:///Assets/Logo/PI160_100.png" Stretch="UniformToFill"></Image>
+                                            <Image MinHeight="100" Source="{x:Bind Cover}" Stretch="UniformToFill"></Image>
+                                            <Grid VerticalAlignment="Bottom" Padding="4" Visibility="{Binding showCoverText}">
+                                                <Grid.Background>
+                                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                        <GradientStop Color="#CC000005" Offset="0.993"/>
+                                                        <GradientStop Color="#00000000" Offset="0"/>
+                                                    </LinearGradientBrush>
+                                                </Grid.Background>
 
-                                                    <TextBlock  FontSize="12" Foreground="White" Text="{x:Bind left_text}"></TextBlock>
-                                                    <TextBlock HorizontalAlignment="Right" FontSize="12" Foreground="White"  Text="{x:Bind cover_right_text}"></TextBlock>
-                                                </Grid>
+                                                <TextBlock  FontSize="12" Foreground="White" Text="{x:Bind left_text}"></TextBlock>
+                                                <TextBlock HorizontalAlignment="Right" FontSize="12" Foreground="White"  Text="{x:Bind cover_right_text}"></TextBlock>
                                             </Grid>
-
-                                            <TextBlock  Margin="8 4 8 0" TextWrapping="Wrap" MaxLines="2" TextTrimming="CharacterEllipsis" Grid.Row="1" Text="{x:Bind title}"></TextBlock>
-                                            <StackPanel Orientation="Horizontal" Margin="4 0 4 4"  Grid.Row="2">
-                                                <Border Visibility="{x:Bind showBadge}" Margin="0 0 4 0" BorderThickness="1" BorderBrush="{ThemeResource Bili-ForeColor}" Padding="4 0" CornerRadius="4">
-                                                    <TextBlock FontSize="12" Foreground="{ThemeResource Bili-ForeColor}" Text="{x:Bind Path=badge}"></TextBlock>
-                                                </Border>
-                                                <Border Visibility="{x:Bind showRcmd}" BorderThickness="1" Background="{x:Bind Path=rcmd_reason_style.bgColor}" BorderBrush="{x:Bind Path=rcmd_reason_style.borderColor}" Padding="4 0" CornerRadius="4">
-                                                    <TextBlock FontSize="12" Foreground="{x:Bind Path=rcmd_reason_style.textColor}" Text="{x:Bind Path=rcmd_reason_style.text}"></TextBlock>
-                                                </Border>
-                                                <TextBlock FontSize="12" Margin="4 0" Foreground="Gray" VerticalAlignment="Center" Text="{x:Bind bottomText}"></TextBlock>
-                                            </StackPanel>
-
                                         </Grid>
+
+                                        <TextBlock  Margin="8 4 8 0" TextWrapping="Wrap" MaxLines="2" TextTrimming="CharacterEllipsis" Grid.Row="1" Text="{x:Bind title}"></TextBlock>
+                                        <StackPanel Orientation="Horizontal" Margin="4 0 4 4"  Grid.Row="2">
+                                            <Border Visibility="{x:Bind showBadge}" Margin="0 0 4 0" BorderThickness="1" BorderBrush="{ThemeResource Bili-ForeColor}" Padding="4 0" CornerRadius="4">
+                                                <TextBlock FontSize="12" Foreground="{ThemeResource Bili-ForeColor}" Text="{x:Bind Path=badge}"></TextBlock>
+                                            </Border>
+                                            <Border Visibility="{x:Bind showRcmd}" BorderThickness="1" Background="{x:Bind Path=rcmd_reason_style.bgColor}" BorderBrush="{x:Bind Path=rcmd_reason_style.borderColor}" Padding="4 0" CornerRadius="4">
+                                                <TextBlock FontSize="12" Foreground="{x:Bind Path=rcmd_reason_style.textColor}" Text="{x:Bind Path=rcmd_reason_style.text}"></TextBlock>
+                                            </Border>
+                                            <TextBlock FontSize="12" Margin="4 0" Foreground="Gray" VerticalAlignment="Center" Text="{x:Bind bottomText}"></TextBlock>
+                                        </StackPanel>
+
+                                    </Grid>
 
                                 </DataTemplate>
 
@@ -185,7 +185,7 @@
                             </GridView.Footer>
                         </toolkit:AdaptiveGridView>
 
-                    
+
                     </StackPanel>
                 </ScrollViewer>
                 <ProgressRing Width="56" Height="56" Grid.RowSpan="2" IsActive="True" x:Name="pr_Load" Visibility="{Binding showLoading}"></ProgressRing>
@@ -272,7 +272,7 @@
                     </DataTemplate>
                 </controls:FlipViewControl.ItemTemplate>
             </controls:FlipViewControl>
-            
+
             <!--<Grid>
                 <Viewbox Margin="8">
                     <FlipView x:Name="flipView_banner" ItemsSource="{Binding banner_item}" Height="300" Width="1020" >
@@ -315,36 +315,36 @@
                 </GridView.Header>
                 <GridView.ItemTemplate>
                     <DataTemplate>
-                   
-                            <Grid Background="{ThemeResource Bili-List-Background}">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition/>
-                                    <RowDefinition Height="48"/>
-                                    <RowDefinition Height="24"/>
-                                </Grid.RowDefinitions>
-                                <Grid>
-                                    <Image MinHeight="100" Source="ms-appx:///Assets/Logo/PI160_100.png" Stretch="UniformToFill"></Image>
-                                    <Image MinHeight="100" Source="{Binding Cover}" Stretch="UniformToFill"></Image>
-                                    <Grid VerticalAlignment="Bottom" Padding="4">
-                                        <Grid.Background>
-                                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                                <GradientStop Color="#CC000005" Offset="0.993"/>
-                                                <GradientStop Color="#00000000" Offset="0"/>
-                                            </LinearGradientBrush>
-                                        </Grid.Background>
 
-                                        <TextBlock  FontSize="12" Foreground="White" Text="{Binding text}"></TextBlock>
-                                        <TextBlock HorizontalAlignment="Right" FontSize="12" Foreground="White"  Text="{Binding rightText}"></TextBlock>
-                                    </Grid>
+                        <Grid Background="{ThemeResource Bili-List-Background}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition Height="48"/>
+                                <RowDefinition Height="24"/>
+                            </Grid.RowDefinitions>
+                            <Grid>
+                                <Image MinHeight="100" Source="ms-appx:///Assets/Logo/PI160_100.png" Stretch="UniformToFill"></Image>
+                                <Image MinHeight="100" Source="{Binding Cover}" Stretch="UniformToFill"></Image>
+                                <Grid VerticalAlignment="Bottom" Padding="4">
+                                    <Grid.Background>
+                                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                            <GradientStop Color="#CC000005" Offset="0.993"/>
+                                            <GradientStop Color="#00000000" Offset="0"/>
+                                        </LinearGradientBrush>
+                                    </Grid.Background>
+
+                                    <TextBlock  FontSize="12" Foreground="White" Text="{Binding text}"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Right" FontSize="12" Foreground="White"  Text="{Binding rightText}"></TextBlock>
                                 </Grid>
-
-                                <TextBlock Height="48"  Margin="8 4 8 0" TextWrapping="Wrap" MaxLines="2" TextTrimming="CharacterEllipsis" Grid.Row="1" Text="{Binding title}"></TextBlock>
-                                <StackPanel Orientation="Horizontal" Margin="4 0 4 4"  Grid.Row="2">
-
-                                    <TextBlock FontSize="12" Margin="4 0" Foreground="Gray" VerticalAlignment="Center" Text="{Binding tname}"></TextBlock>
-                                </StackPanel>
-
                             </Grid>
+
+                            <TextBlock Height="48"  Margin="8 4 8 0" TextWrapping="Wrap" MaxLines="2" TextTrimming="CharacterEllipsis" Grid.Row="1" Text="{Binding title}"></TextBlock>
+                            <StackPanel Orientation="Horizontal" Margin="4 0 4 4"  Grid.Row="2">
+
+                                <TextBlock FontSize="12" Margin="4 0" Foreground="Gray" VerticalAlignment="Center" Text="{Binding tname}"></TextBlock>
+                            </StackPanel>
+
+                        </Grid>
 
                     </DataTemplate>
 
@@ -434,10 +434,8 @@
     </Page.Resources>
     <Grid>
         <Border x:Name="bor_height" Width="80" VerticalAlignment="Top"></Border>
-        <Pivot 
-            Style="{StaticResource PivotHeaderCenterStyle}" 
+        <Pivot Style="{StaticResource PivotHeaderCenterStyle14393}" 
             x:Name="pivot_home" 
-         
             SelectionChanged="pivot_home_SelectionChanged" 
             ItemTemplateSelector="{StaticResource ResourceKey=homeDataTemplateSelector}">
             <Pivot.HeaderTemplate>
