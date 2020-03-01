@@ -19,7 +19,7 @@ namespace BiliBili3.Controls
         {
             if (_items.Count > 0)
             {
-                this.ArrangePanes(availableSize.Width);
+                //this.ArrangePanes(availableSize.Width);
 
                 int index = this.Index;
                 int itemCount = _items.Count;
@@ -49,6 +49,8 @@ namespace BiliBili3.Controls
         {
             if (_items.Count > 0)
             {
+                ArrangePanes(finalSize.Width);
+
                 int index = this.Index;
                 int paneCount = base.Children.Count;
 
@@ -67,7 +69,7 @@ namespace BiliBili3.Controls
                     x += itemWidth;
                 }
 
-                return new Size(0, finalSize.Height);
+                return finalSize;
             }
             return base.ArrangeOverride(finalSize);
         }

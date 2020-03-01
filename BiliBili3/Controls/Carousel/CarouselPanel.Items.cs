@@ -2,8 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
-
+using System.Threading.Tasks;
+using Windows.Graphics.Imaging;
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 
 namespace BiliBili3.Controls
 {
@@ -18,10 +21,51 @@ namespace BiliBili3.Controls
             set { SetValue(IndexProperty, value); }
         }
 
-        private static void IndexChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        private static async void IndexChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var control = d as CarouselPanel;
+            await control.UpdateBackBufferAsync();
             control.InvalidateMeasure();
+            await control.ClearBackBufferLater();
+        }
+
+        private async Task ClearBackBufferLater()
+        {
+            await Task.Delay(100);
+            Carousel root = FindCarousel();
+            if (root != null)
+            {
+                root.Background = null;
+            } // End If
+        }
+
+        private async Task UpdateBackBufferAsync()
+        {
+            var snapshotBmp = new RenderTargetBitmap();
+            Carousel root = FindCarousel();
+            if (root != null)
+            {
+                root.Background = null;
+                await snapshotBmp.RenderAsync(root);
+                root.Background = new ImageBrush { ImageSource = snapshotBmp };
+            } // End If
+        }
+
+        private Carousel FindCarousel()
+        {
+            DependencyObject parent = VisualTreeHelper.GetParent(this);
+            Carousel root = null;
+            while (parent != null)
+            {
+                if (parent is Carousel)
+                {
+                    root = (Carousel)parent;
+                    break;
+                } // End If
+                parent = VisualTreeHelper.GetParent(parent);
+            } // End While
+
+            return root;
         }
 
         public static readonly DependencyProperty IndexProperty = DependencyProperty.Register("Index", typeof(int), typeof(CarouselPanel), new PropertyMetadata(0, IndexChanged));

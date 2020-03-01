@@ -5,6 +5,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Controls;
 using Windows.Foundation;
+using Windows.UI.Xaml.Media.Imaging;
 
 namespace BiliBili3.Controls
 {
@@ -26,6 +27,21 @@ namespace BiliBili3.Controls
             this.Loaded += OnLoaded;
             this.Unloaded += OnUnloaded;
             this.SizeChanged += OnSizeChanged;
+            PointerWheelChanged += Carousel_PointerWheelChanged;
+        }
+
+        private void Carousel_PointerWheelChanged(object sender, PointerRoutedEventArgs e)
+        {
+            int mouseWheelDelta = e.GetCurrentPoint(this).Properties.MouseWheelDelta;
+            if (mouseWheelDelta > 0)
+            {
+                MoveBack();
+            }
+            else
+            {
+                MoveForward();
+            } // End If
+            e.Handled = true;
         }
 
         private void OnLoaded(object sender, RoutedEventArgs e)
@@ -163,6 +179,7 @@ namespace BiliBili3.Controls
             _panel.TranslateDeltaX(-0.01);
             AnimateNext();
         }
+
         #endregion
     }
 }

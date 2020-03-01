@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Threading.Tasks;
 using Windows.UI.Xaml.Input;
 
 namespace BiliBili3.Controls
@@ -60,7 +60,6 @@ namespace BiliBili3.Controls
             double position = Position - delta;
 
             await _panel.AnimateXAsync(position, duration);
-
             this.Index = (int)(-position / this.ItemWidth);
             _isBusy = false;
         }
