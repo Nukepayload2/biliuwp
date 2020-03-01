@@ -32,10 +32,10 @@
                 <ScrollViewer x:Name="sv" ViewChanged="sv_ViewChanged">
                     <StackPanel>
                         <Grid>
-                            <controls:Carousel x:Name="control" Margin="16 8" ItemsSource="{Binding Path=banner_items,Mode=OneWay}" MaxItems="1"  AspectRatio="2" GradientOpacity="1.0" MaxHeight="240">
+                            <controls:Carousel x:Name="control" Margin="16 8" ItemsSource="{Binding Path=banner_items,Mode=OneWay}" MaxItems="1" Padding="0" AspectRatio="2" GradientOpacity="0" MaxHeight="240">
                                 <controls:Carousel.ContentTemplate>
                                     <DataTemplate x:DataType="homemodels:Banner_item">
-                                        <HyperlinkButton Margin="8" Click="btn_banner_Click" ToolTipService.ToolTip="{x:Bind Path=title}"  Padding="0" HorizontalContentAlignment="Stretch" HorizontalAlignment="Stretch">
+                                        <HyperlinkButton Margin="8" Click="btn_banner_Click" ToolTipService.ToolTip="{x:Bind Path=title}" Padding="0" HorizontalContentAlignment="Stretch" HorizontalAlignment="Stretch">
                                             <Image Stretch="UniformToFill" Source="{x:Bind Path=image}"></Image>
                                         </HyperlinkButton>
                                     </DataTemplate>

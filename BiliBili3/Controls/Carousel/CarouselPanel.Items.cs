@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BiliBili3.Helper;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -31,7 +32,7 @@ namespace BiliBili3.Controls
 
         private async Task ClearBackBufferLater()
         {
-            await Task.Delay(100);
+            await Task.Delay(200);
             Carousel root = FindCarousel();
             if (root != null)
             {
@@ -47,7 +48,18 @@ namespace BiliBili3.Controls
             {
                 root.Background = null;
                 await snapshotBmp.RenderAsync(root);
-                root.Background = new ImageBrush { ImageSource = snapshotBmp };
+                var imageBrush = new ImageBrush
+                {
+                    ImageSource = snapshotBmp,
+                    Stretch = Stretch.None,
+                    AlignmentX = AlignmentX.Left,
+                    AlignmentY = AlignmentY.Top
+                };
+                if (SystemHelper.GetSystemBuild() < 16299)
+                {
+                    imageBrush.Transform = new TranslateTransform { X = -9, Y = -5 };
+                } // End If
+                root.Background = imageBrush;
             } // End If
         }
 
