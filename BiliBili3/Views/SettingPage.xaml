@@ -675,9 +675,17 @@
 
                         </Grid>
                         <Grid Margin="0 10 0 0">
-                            <TextBlock Foreground="Gray" VerticalAlignment="Center">作者</TextBlock>
-                            <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center">原作者：逍遥橙子(xiaoyaocz)，当前版本维护者：Nukepayload2</TextBlock>
+                            <TextBlock Foreground="Gray" VerticalAlignment="Center">基于原始版本</TextBlock>
+                            <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center">3.9.58</TextBlock>
 
+                        </Grid>
+                        <Grid Margin="0 10 0 0">
+                            <TextBlock Foreground="Gray" VerticalAlignment="Center">原作者</TextBlock>
+                            <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center">逍遥橙子(xiaoyaocz)</TextBlock>
+                        </Grid>
+                        <Grid Margin="0 10 0 0">
+                            <TextBlock Foreground="Gray" VerticalAlignment="Center">当前版本维护者</TextBlock>
+                            <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center">Nukepayload2</TextBlock>
                         </Grid>
 
                         <TextBlock FontSize="18" Margin="0 10 0 0">联系</TextBlock>
@@ -691,11 +699,15 @@
                         </HyperlinkButton>
                         <HyperlinkButton Click="HyperlinkButton_Click" Tag="xiaoyaocz@52uwp.com" HorizontalAlignment="Stretch" Foreground="{ThemeResource Bili-FontColor}"  HorizontalContentAlignment="Stretch" Padding="0">
                             <Grid Margin="0 10 0 0">
-                                <TextBlock Foreground="Gray" VerticalAlignment="Center">Email</TextBlock>
-                                <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center">原作者：xiaoyaocz@52uwp.com，当前版本维护者：nukepayload2@outlook.com</TextBlock>
-
+                                <TextBlock Foreground="Gray" VerticalAlignment="Center">原作者的 Email</TextBlock>
+                                <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center">xiaoyaocz@52uwp.com</TextBlock>
                             </Grid>
-
+                        </HyperlinkButton>
+                        <HyperlinkButton NavigateUri="mailto:nukepayload2@outlook.com" HorizontalAlignment="Stretch" Foreground="{ThemeResource Bili-FontColor}"  HorizontalContentAlignment="Stretch" Padding="0">
+                            <Grid Margin="0 10 0 0">
+                                <TextBlock Foreground="Gray" VerticalAlignment="Center">当前版本维护者的 Email</TextBlock>
+                                <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center">nukepayload2@outlook.com</TextBlock>
+                            </Grid>
                         </HyperlinkButton>
                         <TextBlock Visibility="Collapsed" FontSize="18" Margin="0 10 0 0">交流</TextBlock>
                         <HyperlinkButton Visibility="Collapsed" Click="HyperlinkButton_Click" Tag="530991215" HorizontalAlignment="Stretch"  Foreground="{ThemeResource Bili-FontColor}"  HorizontalContentAlignment="Stretch" Padding="0">
@@ -704,11 +716,8 @@
                                 <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center">530991215</TextBlock>
 
                             </Grid>
-
                         </HyperlinkButton>
-
                         <TextBlock FontSize="18" Margin="0 10 0 0">赞助</TextBlock>
-
                         <HyperlinkButton Click="HyperlinkButton_Click_1"  HorizontalAlignment="Stretch" Foreground="{ThemeResource Bili-FontColor}" HorizontalContentAlignment="Stretch" Padding="0">
                             <Grid Margin="0 10 0 0">
                                 <TextBlock Foreground="Gray" VerticalAlignment="Center">原作者的支付宝</TextBlock>
@@ -726,7 +735,7 @@
                         <TextBlock FontSize="18" Margin="0 10 0 0">关于 14393 兼容版的说明</TextBlock>
                         <RichTextBlock Margin="0 10 0 0">
                             <Paragraph Foreground="Gray">
-                                <Run>由 Nukepayload2 基于 3.9.58 版修改而来。如果发现 bug 请在</Run>
+                                <Run>此版本兼容 14393 (1607) 版的电脑版和手机版系统。由 Nukepayload2 基于原作者公开的源码 (MIT 协议) 修改而来。如果发现 bug 请在</Run>
                                 <Hyperlink NavigateUri="https://gitee.com/nukepayload2/biliuwp_bak/releases">https://gitee.com/nukepayload2/biliuwp_bak/releases
                                 </Hyperlink>
                                 <Run>尝试最新版本。如果问题持续存在，请报告到</Run>
