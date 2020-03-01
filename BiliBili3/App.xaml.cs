@@ -100,6 +100,7 @@ namespace BiliBili3
         protected async override void OnLaunched(LaunchActivatedEventArgs e)
         {
             SYEngine.Core.Initialize();
+           
             RegisterExceptionHandlingSynchronizationContext();
 #if DEBUG
             if (System.Diagnostics.Debugger.IsAttached)

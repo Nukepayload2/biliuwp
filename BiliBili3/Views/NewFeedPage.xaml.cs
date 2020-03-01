@@ -90,43 +90,29 @@ namespace BiliBili3.Views
         }
         protected override Size MeasureOverride(Size availableSize)
         {
-            int num = 2;
+            //if (pivot_home != null && availableSize.Width >= 800)
+            //{
+            //    //改样式还得考虑下SDK版本
+            //    if (SystemHelper.GetSystemBuild() >= 16299)
+            //    {
+            //        if (pivot_home.Style!= App.Current.Resources["PivotHeaderCenterStyle"])
+            //        {
+            //            pivot_home.Style = App.Current.Resources["PivotHeaderCenterStyle"] as Style;
+            //        }
+            //    }
+            //    else
+            //    {
+            //        if (pivot_home.Style != App.Current.Resources["PivotHeaderCenterStyle14393"])
+            //        {
+            //            pivot_home.Style = App.Current.Resources["PivotHeaderCenterStyle14393"] as Style;
+            //        }
+            //    }
+            //}
+            //else
+            //{
+            //    pivot_home.Style = null;
+            //}
 
-            if (availableSize.Width > 500)
-            {
-                num = (int)availableSize.Width / 260;
-                if (num < 2)
-                {
-                    num = 2;
-                }
-            }
-
-            bor_width3.Width = (availableSize.Width - (num * 17)) / num;
-
-            int d = Convert.ToInt32(availableSize.Width / 450);
-            if (d > 3)
-            {
-                d = 3;
-            }
-            bor_WidthHot.Width = (availableSize.Width - 16) / d-5*d;
-
-            if (pivot_home != null && availableSize.Width >= 800)
-            {
-                //改样式还得考虑下SDK版本
-                if (SystemHelper.GetSystemBuild()>= 16299)
-                {
-                    pivot_home.Style = App.Current.Resources["PivotHeaderCenterStyle"] as Style;
-                }
-                else
-                {
-                    pivot_home.Style = App.Current.Resources["PivotHeaderCenterStyle14393"] as Style;
-                }
-            }
-            else
-            {
-                pivot_home.Style = null;
-            }
-           
             return base.MeasureOverride(availableSize);
 
         }
@@ -238,15 +224,15 @@ namespace BiliBili3.Views
 
         private void Border_RightTapped(object sender, RightTappedRoutedEventArgs e)
         {
-            ShowMenu(sender as Border);
+            ShowMenu(sender as Grid);
         }
 
         private void Border_Holding(object sender, HoldingRoutedEventArgs e)
         {
-            ShowMenu(sender as Border);
+            ShowMenu(sender as Grid);
         }
 
-        private void ShowMenu(Border sender)
+        private void ShowMenu(Grid sender)
         {
             var data = sender.DataContext as Modules.HomeModels.HomeDataModel;
             add_toview.Visibility = Visibility.Collapsed;
@@ -734,7 +720,7 @@ namespace BiliBili3.Views
             if (mode == HomeDisplayMode.Hot)
             {
                 hot_datas = null;
-                LoadHot();
+                 LoadHot();
             }
             if (mode == HomeDisplayMode.Topic)
             {
