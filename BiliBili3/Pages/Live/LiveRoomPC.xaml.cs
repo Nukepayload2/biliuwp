@@ -1433,7 +1433,7 @@ namespace BiliBili3.Pages.Live
         private void media_MediaEnded(object sender, RoutedEventArgs e)
         {
 
-            var now = playUrls.FindIndex(x => x.url == media.Source);
+            var now = playUrls?.FindIndex(x => x.url == media.Source);
             if (now == playUrls.Count - 1)
             {
                 media.Stop();
@@ -1446,7 +1446,10 @@ namespace BiliBili3.Pages.Live
                 media.Stop();
                 media.Source = null;
                 media.MediaSource = null;
-                media.Source = playUrls[now + 1].url;
+                if (now != null)
+                {
+                    media.Source = playUrls[now.Value + 1].url;
+                } // End If
             }
 
 

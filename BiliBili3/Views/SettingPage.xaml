@@ -666,7 +666,7 @@
                         <TextBlock FontSize="16">信息</TextBlock>
                         <Grid Margin="0 10 0 0">
                             <TextBlock Foreground="Gray" VerticalAlignment="Center">名称</TextBlock>
-                            <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center">哔哩哔哩第三方UWP</TextBlock>
+                            <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center">哔哩哔哩第三方UWP (14393 兼容版)</TextBlock>
 
                         </Grid>
                         <Grid Margin="0 10 0 0">
@@ -676,7 +676,7 @@
                         </Grid>
                         <Grid Margin="0 10 0 0">
                             <TextBlock Foreground="Gray" VerticalAlignment="Center">作者</TextBlock>
-                            <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center">逍遥橙子(xiaoyaocz)</TextBlock>
+                            <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center">原作者：逍遥橙子(xiaoyaocz)，当前版本维护者：Nukepayload2</TextBlock>
 
                         </Grid>
 
@@ -692,7 +692,7 @@
                         <HyperlinkButton Click="HyperlinkButton_Click" Tag="xiaoyaocz@52uwp.com" HorizontalAlignment="Stretch" Foreground="{ThemeResource Bili-FontColor}"  HorizontalContentAlignment="Stretch" Padding="0">
                             <Grid Margin="0 10 0 0">
                                 <TextBlock Foreground="Gray" VerticalAlignment="Center">Email</TextBlock>
-                                <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center">xiaoyaocz@52uwp.com</TextBlock>
+                                <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center">原作者：xiaoyaocz@52uwp.com，当前版本维护者：nukepayload2@outlook.com</TextBlock>
 
                             </Grid>
 
@@ -711,18 +711,14 @@
 
                         <HyperlinkButton Click="HyperlinkButton_Click_1"  HorizontalAlignment="Stretch" Foreground="{ThemeResource Bili-FontColor}" HorizontalContentAlignment="Stretch" Padding="0">
                             <Grid Margin="0 10 0 0">
-                                <TextBlock Foreground="Gray" VerticalAlignment="Center">支付宝</TextBlock>
+                                <TextBlock Foreground="Gray" VerticalAlignment="Center">原作者的支付宝</TextBlock>
                                 <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center">2500655055@qq.com,**程</TextBlock>
-
                             </Grid>
-
                         </HyperlinkButton>
                         <TextBlock FontSize="18" Margin="0 10 0 0">使用声明</TextBlock>
                         <TextBlock Foreground="Gray" VerticalAlignment="Center" TextWrapping="Wrap" Margin="0 10 0 0" >1、本程序为哔哩哔哩动画第三方客户端，所有资源均来自哔哩哔哩动画</TextBlock>
                         <TextBlock Foreground="Gray" VerticalAlignment="Center"  TextWrapping="Wrap" Margin="0 10 0 0">2、本程序仅供学习交流编程技术使用</TextBlock>
                         <TextBlock Foreground="Gray" VerticalAlignment="Center" TextWrapping="Wrap" Margin="0 10 0 0">3、如果侵犯您的合法权益，请及时联系本人以第一时间删除</TextBlock>
-
-
 
                         <TextBlock FontSize="18" Margin="0 10 0 0">感谢</TextBlock>
                         <TextBlock Foreground="Gray" VerticalAlignment="Center" Margin="0 10 0 0" TextWrapping="Wrap">感谢以下小伙伴在开发过程中给予的各种帮助(排名不分先后)</TextBlock>

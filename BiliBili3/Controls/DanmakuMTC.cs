@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.UI;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
@@ -40,7 +41,7 @@ namespace BiliBili3.Controls
             SubTitleBackground = new SolidColorBrush(Color.FromArgb(120, 0, 0, 0));
             SubTitleColor = new SolidColorBrush(Colors.Red);
             SubTitleFontFamily = new FontFamily("Segoe UI");
-            SubTitleFontSize = SettingHelper.IsPc()?25.0:18.0;
+            SubTitleFontSize = SettingHelper.IsPc() ? 25.0 : 18.0;
 
             timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromSeconds(1);
@@ -61,7 +62,7 @@ namespace BiliBili3.Controls
             {
                 LogHelper.WriteLog(ex);
             }
-           
+
         }
 
         private void Timer_Tick(object sender, object e)
@@ -74,7 +75,7 @@ namespace BiliBili3.Controls
             {
                 LogHelper.WriteLog(ex);
             }
-           
+
         }
 
         DispatcherTimer timer;
@@ -108,6 +109,10 @@ namespace BiliBili3.Controls
                     DanmuLoaded(this, GetTemplateChild("danmuControls") as Danmaku);
                 }
                 myDanmaku = GetTemplateChild("danmuControls") as Danmaku;
+                if (myDanmaku == null)
+                {
+                    RetryAttachMyDanmakuLater();
+                } // End If
                 (GetTemplateChild("MiniWindowsButton") as AppBarButton).Click += MiniWindowsButton_Click;
                 (GetTemplateChild("btn_Back") as AppBarButton).Click += ExitButton_Click;
                 (GetTemplateChild("btn_danmaku") as AppBarButton).Click += CloseOpenDanmaku_Click;
@@ -123,7 +128,8 @@ namespace BiliBili3.Controls
 
                 if (!SettingHelper.Get_DMStatus())
                 {
-                    (GetTemplateChild("btn_danmaku") as AppBarButton).Icon = new BitmapIcon() {
+                    (GetTemplateChild("btn_danmaku") as AppBarButton).Icon = new BitmapIcon()
+                    {
                         UriSource = new Uri("ms-appx:///Assets/PlayerAssets/ic_player_danmaku_input_options_rl_disabled.png")
                     };
                 }
@@ -156,7 +162,20 @@ namespace BiliBili3.Controls
             {
                 LogHelper.WriteLog(ex);
             }
-           
+
+        }
+
+        private async void RetryAttachMyDanmakuLater()
+        {
+            await Task.Delay(100);
+            await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+            {
+                myDanmaku = GetTemplateChild("danmuControls") as Danmaku;
+                if (myDanmaku == null)
+                {
+                    RetryAttachMyDanmakuLater();
+                }
+            });
         }
 
         public void HideOrShowMTC()
@@ -326,7 +345,7 @@ namespace BiliBili3.Controls
         }
         public void HideSubtitle()
         {
-            (GetTemplateChild("grid_subtitle") as Grid).Visibility = Visibility.Collapsed ;
+            (GetTemplateChild("grid_subtitle") as Grid).Visibility = Visibility.Collapsed;
         }
         public void ShowSubtitle()
         {
@@ -686,11 +705,11 @@ namespace BiliBili3.Controls
             get { return (FlyoutBase)GetValue(CCSelectFlyoutProperty); }
             set { SetValue(CCSelectFlyoutProperty, value); }
         }
-        
+
         public static readonly DependencyProperty CCSelectFlyoutProperty =
             DependencyProperty.Register("CCSelectFlyout", typeof(FlyoutBase), typeof(MediaTransportControls), new PropertyMetadata(0));
 
-        
+
         /// <summary>
         /// 字幕字体大小
         /// </summary>
@@ -725,7 +744,7 @@ namespace BiliBili3.Controls
         }
 
         public static readonly DependencyProperty SubTitleBackgroundProperty =
-            DependencyProperty.Register("SubTitleBackground", typeof(Brush), typeof(MediaTransportControls), new PropertyMetadata(new SolidColorBrush(Color.FromArgb(120,0,0,0))));
+            DependencyProperty.Register("SubTitleBackground", typeof(Brush), typeof(MediaTransportControls), new PropertyMetadata(new SolidColorBrush(Color.FromArgb(120, 0, 0, 0))));
 
         /// <summary>
         /// 字幕字体颜色

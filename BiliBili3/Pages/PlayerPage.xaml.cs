@@ -38,6 +38,7 @@ using Windows.Graphics.Imaging;
 using SYEngine;
 using System.Diagnostics;
 using BiliBili3.Modules;
+using Windows.Media.Effects;
 
 // “空白页”项模板在 http://go.microsoft.com/fwlink/?LinkId=234238 上有介绍
 
@@ -67,6 +68,7 @@ namespace BiliBili3.Pages
                 _systemMediaTransportControls.IsPauseEnabled = true;
                 _systemMediaTransportControls.ButtonPressed += _systemMediaTransportControls_ButtonPressed;
             }
+
         }
         private void MTC_DanmuLoaded(object sender, NSDanmaku.Controls.Danmaku e)
         {
@@ -178,6 +180,7 @@ namespace BiliBili3.Pages
             int flag = 1;
             while (true)
             {
+                danmu = MTC.myDanmaku;
                 if (danmu != null)
                 {
                     break;
@@ -865,6 +868,7 @@ namespace BiliBili3.Pages
 
                             var ban = await PlayurlHelper.GetBangumiUrl(playNow, (cb_Quity.SelectedItem as QualityModel).qn);
                             txt_site.Text = ban.from;
+
                             if (ban.usePlayMode == UsePlayMode.System)
                             {
 
