@@ -676,7 +676,7 @@
                         </Grid>
                         <Grid Margin="0 10 0 0">
                             <TextBlock Foreground="Gray" VerticalAlignment="Center">基于原始版本</TextBlock>
-                            <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center">3.9.58</TextBlock>
+                            <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center">3.9.61</TextBlock>
 
                         </Grid>
                         <Grid Margin="0 10 0 0">
@@ -739,7 +739,7 @@
                                 <Hyperlink NavigateUri="https://gitee.com/nukepayload2/biliuwp_bak/releases">https://gitee.com/nukepayload2/biliuwp_bak/releases
                                 </Hyperlink>
                                 <Run>尝试最新版本。如果问题持续存在，请报告到</Run>
-                                <Hyperlink NavigateUri="https://github.com/Nukepayload2/biliuwp_14393/issues">https://github.com/Nukepayload2/biliuwp_14393/issues
+                                <Hyperlink NavigateUri="https://github.com/Nukepayload2/biliuwp/issues">https://github.com/Nukepayload2/biliuwp/issues
                                 </Hyperlink>
                                 <Run>或者</Run>
                                 <Hyperlink NavigateUri="https://gitee.com/nukepayload2/biliuwp_bak/issues">https://gitee.com/nukepayload2/biliuwp_bak/issues
