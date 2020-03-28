@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3" IgnorableNamespaces="uap uap3 mp">
-  <Identity Name="5421.143939FA0C51B" Publisher="CN=Oleg" Version="3.9.64.0" />
+  <Identity Name="5421.143939FA0C51C" Publisher="CN=Oleg" Version="3.9.68.0" />
   <mp:PhoneIdentity PhoneProductId="4fbd3503-e744-48fa-b57e-5716b7b963a0" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>哔哩哔哩UWP14393</DisplayName>
@@ -15,7 +15,7 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="BiliBili.UWP.App">
-      <uap:VisualElements DisplayName="哔哩哔哩动画 UWP (14393)" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="哔哩哔哩动画 UWP 客户端" BackgroundColor="transparent">
+      <uap:VisualElements DisplayName="哔哩哔哩动画 UWP (14393 内测)" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="哔哩哔哩动画 UWP 客户端" BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" Square310x310Logo="Assets\Square310x310Logo.png" Square71x71Logo="Assets\Square71x71Logo.png" ShortName="哔哩哔哩 UWP">
           <uap:ShowNameOnTiles>
             <uap:ShowOn Tile="square150x150Logo" />
