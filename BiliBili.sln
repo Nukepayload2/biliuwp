@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiliBili.Background", "Bili
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiliBili.JSBridge", "BiliBili.JSBridge\BiliBili.JSBridge.csproj", "{0839991C-F5EB-4181-98E0-AE81A5F5BE1A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NSDanmaku", "NSDanmaku\NSDanmaku\NSDanmaku.csproj", "{964D5BCC-C063-45CC-AEEA-89169E4A2E5E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -94,7 +96,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		VisualSVNWorkingCopyRoot = .
 		SolutionGuid = {631FAB1A-4EBB-4E8E-AF78-E6162C32A50F}
+		VisualSVNWorkingCopyRoot = .
 	EndGlobalSection
 EndGlobal

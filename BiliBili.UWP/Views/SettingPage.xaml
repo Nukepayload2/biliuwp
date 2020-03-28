@@ -687,7 +687,7 @@
                         </Grid>
                         <Grid Margin="0 10 0 0">
                             <TextBlock Foreground="Gray" VerticalAlignment="Center">基于原始版本</TextBlock>
-                            <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center">3.9.61</TextBlock>
+                            <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center">3.9.68</TextBlock>
 
                         </Grid>
                         <Grid Margin="0 10 0 0">

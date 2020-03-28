@@ -12,7 +12,7 @@
     <DefaultLanguage>zh-CN</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.18362.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.16299.0</TargetPlatformMinVersion>
+    <TargetPlatformMinVersion>10.0.14393.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -1107,9 +1107,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <SDKReference Include="Microsoft.Advertising.Xaml, Version=10.0">
-      <Name>Microsoft Advertising SDK for XAML</Name>
-    </SDKReference>
     <SDKReference Include="Microsoft.VCLibs, Version=14.0">
       <Name>Visual C++ 2015 Runtime for Universal Windows Platform Apps</Name>
     </SDKReference>
@@ -1132,6 +1129,10 @@
       <Project>{0839991c-f5eb-4181-98e0-ae81a5f5be1a}</Project>
       <Name>BiliBiliJS</Name>
     </ProjectReference>
+    <ProjectReference Include="..\NSDanmaku\NSDanmaku\NSDanmaku.csproj">
+      <Project>{964d5bcc-c063-45cc-aeea-89169e4a2e5e}</Project>
+      <Name>NSDanmaku</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="FubarCoder.RestSharp.Portable">
@@ -1144,13 +1145,13 @@
       <Version>6.2.9</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Toolkit.Uwp">
-      <Version>6.0.0</Version>
+      <Version>4.0.0</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Toolkit.Uwp.UI.Controls">
-      <Version>6.0.0</Version>
+      <Version>4.0.0</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.UI.Xaml">
-      <Version>2.3.200213001</Version>
+      <Version>2.1.190606001</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Xaml.Behaviors.Uwp.Managed">
       <Version>2.0.1</Version>
@@ -1158,17 +1159,11 @@
     <PackageReference Include="Newtonsoft.Json">
       <Version>12.0.3</Version>
     </PackageReference>
-    <PackageReference Include="NSDanmaku">
-      <Version>1.4.3</Version>
-    </PackageReference>
     <PackageReference Include="PullToRefresh.UWP">
       <Version>0.3.4</Version>
     </PackageReference>
-    <PackageReference Include="SQLite.Net-PCL">
-      <Version>3.1.1</Version>
-    </PackageReference>
-    <PackageReference Include="SQLite.uwp">
-      <Version>3.31.0</Version>
+    <PackageReference Include="sqlite-net-pcl">
+      <Version>1.6.292</Version>
     </PackageReference>
     <PackageReference Include="VLC.MediaElement">
       <Version>3.1.0.1</Version>

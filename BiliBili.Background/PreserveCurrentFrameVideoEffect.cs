@@ -9,7 +9,7 @@ using Windows.Graphics.Imaging;
 using Windows.Media.Effects;
 using Windows.Media.MediaProperties;
 
-namespace BackTask
+namespace BiliBili.Background
 {
     public sealed class PreserveCurrentFrameVideoEffect : IBasicVideoEffect
     {
