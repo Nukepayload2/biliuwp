@@ -226,7 +226,7 @@
                                                    SelectedIndex="{Binding SelectedIndex, ElementName=control, Mode=TwoWay}"
                                                    ShapeMode="Ellipse" Background="WhiteSmoke"  SelectedBackground="{ThemeResource Bili-ForeColor}" PressedBackground="Gray" />-->
                         </Grid>
-                      
+
                         <!--<controls:FlipViewControl Margin="8"  ItemsSource="{Binding banner_items}" IntervalSeconds="3"  FlipViewHeight="300" FlipViewWidth="1020">
 
                             <controls:FlipViewControl.ItemTemplate>
@@ -260,40 +260,40 @@
                             <GridView.ItemTemplate>
                                 <DataTemplate x:DataType="homemodels:HomeDataModel">
 
-                                        <Grid  RightTapped="Border_RightTapped" Holding="Border_Holding"  Background="{ThemeResource Bili-List-Background}">
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition/>
-                                                <RowDefinition Height="48"/>
-                                                <RowDefinition Height="24"/>
-                                            </Grid.RowDefinitions>
-                                            <Grid>
-                                                <Image MinHeight="100" Source="ms-appx:///Assets/Logo/PI160_100.png" Stretch="UniformToFill"></Image>
+                                    <Grid  RightTapped="Border_RightTapped" Holding="Border_Holding"  Background="{ThemeResource Bili-List-Background}">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition/>
+                                            <RowDefinition Height="48"/>
+                                            <RowDefinition Height="24"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid>
+                                            <Image MinHeight="100" Source="ms-appx:///Assets/Logo/PI160_100.png" Stretch="UniformToFill"></Image>
                                             <Image MinHeight="100" Source="{x:Bind Path=cover,Converter={StaticResource ResourceKey=imageConvert2},ConverterParameter='320w_200h_1e_1c'}" Stretch="UniformToFill" ></Image>
-                                                <Grid VerticalAlignment="Bottom" Padding="4" Visibility="{Binding showCoverText}">
-                                                    <Grid.Background>
-                                                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                                            <GradientStop Color="#CC000005" Offset="0.993"/>
-                                                            <GradientStop Color="#00000000" Offset="0"/>
-                                                        </LinearGradientBrush>
-                                                    </Grid.Background>
+                                            <Grid VerticalAlignment="Bottom" Padding="4" Visibility="{Binding showCoverText}">
+                                                <Grid.Background>
+                                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                        <GradientStop Color="#CC000005" Offset="0.993"/>
+                                                        <GradientStop Color="#00000000" Offset="0"/>
+                                                    </LinearGradientBrush>
+                                                </Grid.Background>
 
-                                                    <TextBlock  FontSize="12" Foreground="White" Text="{x:Bind left_text}"></TextBlock>
-                                                    <TextBlock HorizontalAlignment="Right" FontSize="12" Foreground="White"  Text="{x:Bind cover_right_text}"></TextBlock>
-                                                </Grid>
+                                                <TextBlock  FontSize="12" Foreground="White" Text="{x:Bind left_text}"></TextBlock>
+                                                <TextBlock HorizontalAlignment="Right" FontSize="12" Foreground="White"  Text="{x:Bind cover_right_text}"></TextBlock>
                                             </Grid>
-
-                                            <TextBlock  Margin="8 4 8 0" TextWrapping="Wrap" MaxLines="2" TextTrimming="CharacterEllipsis" Grid.Row="1" Text="{x:Bind title}"></TextBlock>
-                                            <StackPanel Orientation="Horizontal" Margin="4 0 4 4"  Grid.Row="2">
-                                                <Border Visibility="{x:Bind showBadge}" Margin="0 0 4 0" BorderThickness="1" BorderBrush="{ThemeResource Bili-ForeColor}" Padding="4 0" CornerRadius="4">
-                                                    <TextBlock FontSize="12" Foreground="{ThemeResource Bili-ForeColor}" Text="{x:Bind Path=badge}"></TextBlock>
-                                                </Border>
-                                                <Border Visibility="{x:Bind showRcmd}" BorderThickness="1" Background="{x:Bind Path=rcmd_reason_style.bgColor}" BorderBrush="{x:Bind Path=rcmd_reason_style.borderColor}" Padding="4 0" CornerRadius="4">
-                                                    <TextBlock FontSize="12" Foreground="{x:Bind Path=rcmd_reason_style.textColor}" Text="{x:Bind Path=rcmd_reason_style.text}"></TextBlock>
-                                                </Border>
-                                                <TextBlock FontSize="12" Margin="4 0" Foreground="Gray" VerticalAlignment="Center" Text="{x:Bind bottomText}"></TextBlock>
-                                            </StackPanel>
-
                                         </Grid>
+
+                                        <TextBlock  Margin="8 4 8 0" TextWrapping="Wrap" MaxLines="2" TextTrimming="CharacterEllipsis" Grid.Row="1" Text="{x:Bind title}"></TextBlock>
+                                        <StackPanel Orientation="Horizontal" Margin="4 0 4 4"  Grid.Row="2">
+                                            <Border Visibility="{x:Bind showBadge}" Margin="0 0 4 0" BorderThickness="1" BorderBrush="{ThemeResource Bili-ForeColor}" Padding="4 0" CornerRadius="4">
+                                                <TextBlock FontSize="12" Foreground="{ThemeResource Bili-ForeColor}" Text="{x:Bind Path=badge}"></TextBlock>
+                                            </Border>
+                                            <Border Visibility="{x:Bind showRcmd}" BorderThickness="1" Background="{x:Bind Path=rcmd_reason_style.bgColor}" BorderBrush="{x:Bind Path=rcmd_reason_style.borderColor}" Padding="4 0" CornerRadius="4">
+                                                <TextBlock FontSize="12" Foreground="{x:Bind Path=rcmd_reason_style.textColor}" Text="{x:Bind Path=rcmd_reason_style.text}"></TextBlock>
+                                            </Border>
+                                            <TextBlock FontSize="12" Margin="4 0" Foreground="Gray" VerticalAlignment="Center" Text="{x:Bind bottomText}"></TextBlock>
+                                        </StackPanel>
+
+                                    </Grid>
 
                                 </DataTemplate>
 
@@ -362,8 +362,6 @@
                                 <HyperlinkButton HorizontalAlignment="Center" Foreground="Gray" x:Name="btn_LoadMoreHot" Click="btn_LoadMoreHot_Click">加载更多</HyperlinkButton>
                             </GridView.Footer>
                         </toolkit:AdaptiveGridView>
-
-                    
                     </StackPanel>
                 </ScrollViewer>
                 <ProgressRing Width="56" Height="56" Grid.RowSpan="2" IsActive="True" x:Name="pr_Load" Visibility="{Binding showLoading}"></ProgressRing>
@@ -382,7 +380,7 @@
 
                     </ItemsControl>
                 </ScrollViewer>
-               
+
                 <AppBarButton x:Name="b_btn_Refresh" Click="b_btn_Refresh_Click" Width="48" Grid.RowSpan="2" Visibility="{Binding showRefresh}" Height="48" Margin="20" VerticalAlignment="Bottom" HorizontalAlignment="Right" Icon="Refresh" Background="{ThemeResource Bili-ForeColor}" Opacity="0.6" Foreground="White"></AppBarButton>
                 <ProgressRing Width="56" Height="56" Grid.RowSpan="2" IsActive="True" x:Name="pr_Load" Visibility="{Binding showLoading}"></ProgressRing>
             </Grid>
@@ -440,7 +438,7 @@
                     </DataTemplate>
                 </controls:FlipViewControl.ItemTemplate>
             </controls:FlipViewControl>
-            
+
             <!--<Grid>
                 <Viewbox Margin="8">
                     <FlipView x:Name="flipView_banner" ItemsSource="{Binding banner_item}" Height="300" Width="1020" >
@@ -484,36 +482,36 @@
                 </GridView.Header>
                 <GridView.ItemTemplate>
                     <DataTemplate>
-                   
-                            <Grid Background="{ThemeResource Bili-List-Background}">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition/>
-                                    <RowDefinition Height="48"/>
-                                    <RowDefinition Height="24"/>
-                                </Grid.RowDefinitions>
-                                <Grid>
-                                    <Image MinHeight="100" Source="ms-appx:///Assets/Logo/PI160_100.png" Stretch="UniformToFill"></Image>
+
+                        <Grid Background="{ThemeResource Bili-List-Background}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition Height="48"/>
+                                <RowDefinition Height="24"/>
+                            </Grid.RowDefinitions>
+                            <Grid>
+                                <Image MinHeight="100" Source="ms-appx:///Assets/Logo/PI160_100.png" Stretch="UniformToFill"></Image>
                                 <Image MinHeight="100" Source="{Binding Path=cover,Converter={StaticResource imageConvert2},ConverterParameter='320w_200h'}" Stretch="UniformToFill"></Image>
-                                    <Grid VerticalAlignment="Bottom" Padding="4">
-                                        <Grid.Background>
-                                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                                <GradientStop Color="#CC000005" Offset="0.993"/>
-                                                <GradientStop Color="#00000000" Offset="0"/>
-                                            </LinearGradientBrush>
-                                        </Grid.Background>
+                                <Grid VerticalAlignment="Bottom" Padding="4">
+                                    <Grid.Background>
+                                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                            <GradientStop Color="#CC000005" Offset="0.993"/>
+                                            <GradientStop Color="#00000000" Offset="0"/>
+                                        </LinearGradientBrush>
+                                    </Grid.Background>
 
-                                        <TextBlock  FontSize="12" Foreground="White" Text="{Binding text}"></TextBlock>
-                                        <TextBlock HorizontalAlignment="Right" FontSize="12" Foreground="White"  Text="{Binding rightText}"></TextBlock>
-                                    </Grid>
+                                    <TextBlock  FontSize="12" Foreground="White" Text="{Binding text}"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Right" FontSize="12" Foreground="White"  Text="{Binding rightText}"></TextBlock>
                                 </Grid>
-
-                                <TextBlock Height="48"  Margin="8 4 8 0" TextWrapping="Wrap" MaxLines="2" TextTrimming="CharacterEllipsis" Grid.Row="1" Text="{Binding title}"></TextBlock>
-                                <StackPanel Orientation="Horizontal" Margin="4 0 4 4"  Grid.Row="2">
-
-                                    <TextBlock FontSize="12" Margin="4 0" Foreground="Gray" VerticalAlignment="Center" Text="{Binding tname}"></TextBlock>
-                                </StackPanel>
-
                             </Grid>
+
+                            <TextBlock Height="48"  Margin="8 4 8 0" TextWrapping="Wrap" MaxLines="2" TextTrimming="CharacterEllipsis" Grid.Row="1" Text="{Binding title}"></TextBlock>
+                            <StackPanel Orientation="Horizontal" Margin="4 0 4 4"  Grid.Row="2">
+
+                                <TextBlock FontSize="12" Margin="4 0" Foreground="Gray" VerticalAlignment="Center" Text="{Binding tname}"></TextBlock>
+                            </StackPanel>
+
+                        </Grid>
 
                     </DataTemplate>
 

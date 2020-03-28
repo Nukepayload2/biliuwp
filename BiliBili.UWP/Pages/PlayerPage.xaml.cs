@@ -262,7 +262,7 @@ namespace BiliBili.UWP.Pages
         bool LoadDanmu = true;
         int LastPost = 0;
         bool settingFlag = true;
-        BrightnessOverride bo;
+        //BrightnessOverride bo;
         double _brightness;
         double Brightness
         {
@@ -270,16 +270,16 @@ namespace BiliBili.UWP.Pages
             set
             {
                 _brightness = value;
-                if (bo != null && bo.IsSupported)
-                {
-                    // 0-dark => 1-light
-                    bo.SetBrightnessLevel(1 - value, DisplayBrightnessOverrideOptions.None);
-                }
-                else
-                {
-                    // 0-light => 1-dark
-                    MTC.Brightness = value;
-                }
+                //if (bo != null && bo.IsSupported)
+                //{
+                //    // 0-dark => 1-light
+                //    bo.SetBrightnessLevel(1 - value, DisplayBrightnessOverrideOptions.None);
+                //}
+                //else
+                //{
+                //    // 0-light => 1-dark
+                //    MTC.Brightness = value;
+                //}
             }
         }
 
@@ -382,12 +382,12 @@ namespace BiliBili.UWP.Pages
                     timer_Date.Stop();
                     timer_Date = null;
                 }
-                if (bo != null)
-                {
-                    if (bo.IsOverrideActive)
-                        bo.StopOverride();
-                    bo = null;
-                }
+                //if (bo != null)
+                //{
+                //    if (bo.IsOverrideActive)
+                //        bo.StopOverride();
+                //    bo = null;
+                //}
                 Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 0);
                 //_mediaPlayer.Source = null;
                 //_mediaPlayer = null;
@@ -591,12 +591,12 @@ namespace BiliBili.UWP.Pages
 
             mediaElement.Volume = SettingHelper.Get_Volume();
 
-            bo = BrightnessOverride.GetForCurrentView();
-            if (bo.IsSupported)
-            {
-                bo.StartOverride();
-            }
-            bo.IsSupportedChanged += Bo_IsSupportedChanged;
+            //bo = BrightnessOverride.GetForCurrentView();
+            //if (bo.IsSupported)
+            //{
+            //    bo.StartOverride();
+            //}
+            //bo.IsSupportedChanged += Bo_IsSupportedChanged;
             Brightness = SettingHelper.Get_Light();
 
             DanmuNum = SettingHelper.Get_DMNumber();
@@ -622,18 +622,18 @@ namespace BiliBili.UWP.Pages
             settingFlag = false;
         }
 
-        private void Bo_IsSupportedChanged(BrightnessOverride sender, object args)
-        {
-            if (bo.IsSupported)
-            {
-                MTC.Brightness = 0;
-                bo.SetBrightnessLevel(1 - Brightness, DisplayBrightnessOverrideOptions.None);
-            }
-            else
-            {
-                MTC.Brightness = Brightness;
-            }
-        }
+        //private void Bo_IsSupportedChanged(BrightnessOverride sender, object args)
+        //{
+        //    if (bo.IsSupported)
+        //    {
+        //        MTC.Brightness = 0;
+        //        bo.SetBrightnessLevel(1 - Brightness, DisplayBrightnessOverrideOptions.None);
+        //    }
+        //    else
+        //    {
+        //        MTC.Brightness = Brightness;
+        //    }
+        //}
 
         string DMZZBDS = "";
         bool hidePointerFlag = false;
