@@ -89,9 +89,20 @@ namespace BiliBili.UWP
             DisplayInformation.GetForCurrentView().OrientationChanged += MainPage_OrientationChanged;
             Window.Current.Content.PointerPressed += MainPage_PointerEntered;
 
-
+            Loaded += MainPage_Loaded;
         }
-      
+
+        private void MainPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (ActualWidth >= 800)
+            {
+                SetWideUI();
+            }
+            else
+            {
+                SetNarrowUI();
+            }
+        }
 
         private async void MessageCenter_ShowError(object sender, Exception e)
         {
@@ -1290,18 +1301,7 @@ namespace BiliBili.UWP
         {
 
         }
-        protected override Size MeasureOverride(Size availableSize)
-        {
-            if (availableSize.Width>=800)
-            {
-                SetWideUI();
-            }
-            else
-            {
-                SetNarrowUI();
-            }
-            return base.MeasureOverride(availableSize);
-        }
+
         //设置宅布局
         private void SetNarrowUI()
         {

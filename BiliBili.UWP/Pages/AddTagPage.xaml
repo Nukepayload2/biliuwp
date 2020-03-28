@@ -22,7 +22,6 @@
             <Setter Property="MinWidth" Value="{ThemeResource ListViewItemMinWidth}"/>
             <Setter Property="MinHeight" Value="{ThemeResource ListViewItemMinHeight}"/>
             <Setter Property="AllowDrop" Value="False"/>
-            <Setter Property="UseSystemFocusVisuals" Value="True"/>
             <Setter Property="FocusVisualMargin" Value="0"/>
             <Setter Property="FocusVisualPrimaryBrush" Value="{ThemeResource ListViewItemFocusVisualPrimaryBrush}"/>
             <Setter Property="FocusVisualPrimaryThickness" Value="2"/>

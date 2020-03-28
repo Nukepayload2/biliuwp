@@ -455,6 +455,7 @@ namespace BiliBili.UWP
         public static event EventHandler<Exception> ShowError;
         public static void SendShowError(Exception ex)
         {
+            Debug.WriteLine(ex.ToString());
             ShowError?.Invoke(null, ex);
         }
     }

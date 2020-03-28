@@ -3,6 +3,7 @@ using BiliBili.UWP.Pages;
 using BiliBili.UWP.Pages.FindMore;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -44,12 +45,14 @@ namespace BiliBili.UWP
             this.EnteredBackground += App_EnteredBackground;
             this.LeavingBackground += App_LeavingBackground;
         }
+
         private void RegisterExceptionHandlingSynchronizationContext()
         {
             ExceptionHandlingSynchronizationContext
                 .Register()
                 .UnhandledException += SynchronizationContext_UnhandledException;
         }
+
         private void SynchronizationContext_UnhandledException(object sender, AysncUnhandledExceptionEventArgs e)
         {
             e.Handled = true;
@@ -57,14 +60,15 @@ namespace BiliBili.UWP
             {
                 LogHelper.WriteLog(e.Exception);
                 Utils.ShowMessageToast("程序出现一个错误，已记录");
-                MessageCenter.SendShowError(e.Exception);
+                //MessageCenter.SendShowError(e.Exception);
+                Debug.WriteLine(e.Exception.ToString());
             }
             catch (Exception)
             {
             }
-
             //await new MessageDialog("出现了一个错误:\r\n" + e.Exception.Message + "\r\n" + e.Exception.StackTrace).ShowAsync();
         }
+
         private void App_UnhandledException(object sender, Windows.UI.Xaml.UnhandledExceptionEventArgs e)
         {
             e.Handled = true;
@@ -72,13 +76,13 @@ namespace BiliBili.UWP
             {
                 LogHelper.WriteLog(e.Exception);
                 Utils.ShowMessageToast("程序出现一个错误，已记录");
-                MessageCenter.SendShowError(e.Exception);
+                //MessageCenter.SendShowError(e.Exception);
+                Debug.WriteLine(e.Exception.ToString());
             }
             catch (Exception)
             {
             }
             //await new MessageDialog("出现了一个错误:\r\n" + e.Exception.Message+"\r\n"+e.Exception.StackTrace).ShowAsync();
-
         }
 
         private void App_LeavingBackground(object sender, LeavingBackgroundEventArgs e)

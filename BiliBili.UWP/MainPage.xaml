@@ -12,7 +12,6 @@
             <Setter Property="IsTabStop" Value="False" />
             <Setter Property="Background" Value="Transparent" />
             <Setter Property="FlowDirection" Value="LeftToRight" />
-            <Setter Property="UseSystemFocusVisuals" Value="True" />
             <Setter Property="IsTextScaleFactorEnabled" Value="False" />
             <Setter Property="Template">
                 <Setter.Value>
@@ -47,7 +46,6 @@
                                     <Setter Property="FontFamily" Value="{ThemeResource ContentControlThemeFontFamily}" />
                                     <Setter Property="FontSize" Value="{ThemeResource ControlContentThemeFontSize}" />
                                     <Setter Property="ManipulationMode" Value="None" />
-                                    <Setter Property="UseSystemFocusVisuals" Value="True" />
                                     <Setter Property="FocusVisualMargin" Value="-7,0,-7,0" />
                                     <Setter Property="IsFocusEngagementEnabled" Value="True" />
                                     <Setter Property="Template">
@@ -797,7 +795,6 @@
             <Setter Property="FontFamily" Value="{ThemeResource ContentControlThemeFontFamily}"/>
             <Setter Property="FontWeight" Value="Normal"/>
             <Setter Property="Width" Value="68"/>
-            <Setter Property="UseSystemFocusVisuals" Value="True"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="AppBarToggleButton">

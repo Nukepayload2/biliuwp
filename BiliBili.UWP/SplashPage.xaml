@@ -19,10 +19,10 @@
             </StackPanel>
         </Grid>
         <!--初始屏幕不应包含过于占用资源的内容-->
-        <Grid x:Name="grid_Load" >
+        <!--<Grid x:Name="grid_Load" >
             <Image x:Name="img_bg"  Stretch="Fill" Tapped="grid_Load_Tapped"  />
             <Canvas x:Name="GlassHost" Grid.ColumnSpan="2" />
             <Image x:Name="img"  Stretch="Uniform" Tapped="grid_Load_Tapped"  />
-        </Grid>
+        </Grid>-->
     </Grid>
 </Page>

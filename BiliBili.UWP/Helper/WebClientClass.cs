@@ -13,6 +13,7 @@ using Newtonsoft.Json.Linq;
 using System.IO;
 using Windows.Security.ExchangeActiveSyncProvisioning;
 using BiliBili.UWP.Class;
+using System.Diagnostics;
 
 namespace BiliBili.UWP
 {
@@ -37,13 +38,19 @@ namespace BiliBili.UWP
 
                 hc.DefaultRequestHeaders.Add("user-agent", "Mozilla/5.0 BiliDroid/4.34.0 (bbcallen@gmail.com)");
                 hc.DefaultRequestHeaders.Referer = new Uri("http://www.bilibili.com/");
-                HttpResponseMessage hr = await hc.GetAsync(url);
-                hr.EnsureSuccessStatusCode();
-                var encodeResults = await hr.Content.ReadAsBufferAsync();
-                string results = Encoding.UTF8.GetString(encodeResults.ToArray(), 0, encodeResults.ToArray().Length);
-
-                //string result = await response.Content.ReadAsStringAsync();
-                return results;
+                try
+                {
+                    HttpResponseMessage hr = await hc.GetAsync(url);
+                    hr.EnsureSuccessStatusCode();
+                    var encodeResults = await hr.Content.ReadAsBufferAsync();
+                    string results = Encoding.UTF8.GetString(encodeResults.ToArray(), 0, encodeResults.ToArray().Length);
+                    return results;
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex);
+                    throw;
+                }
             }
         }
         public static async Task<string> GetResults(Uri url,Dictionary<string,string> header)

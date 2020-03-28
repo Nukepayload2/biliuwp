@@ -105,7 +105,6 @@
             <Setter Property="ScrollViewer.IsVerticalScrollChainingEnabled" Value="True"/>
             <Setter Property="ScrollViewer.IsDeferredScrollingEnabled" Value="False"/>
             <Setter Property="ScrollViewer.BringIntoViewOnFocusChange" Value="True"/>
-            <Setter Property="UseSystemFocusVisuals" Value="True"/>
             <Setter Property="ItemsPanel">
                 <Setter.Value>
                     <ItemsPanelTemplate>
@@ -242,10 +241,10 @@
                             <ScrollViewer x:Name="ScrollingHost" AutomationProperties.AccessibilityView="Raw" BringIntoViewOnFocusChange="{TemplateBinding ScrollViewer.BringIntoViewOnFocusChange}" HorizontalScrollMode="{TemplateBinding ScrollViewer.HorizontalScrollMode}" HorizontalSnapPointsType="MandatorySingle" HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}" IsTabStop="False" IsHorizontalRailEnabled="{TemplateBinding ScrollViewer.IsHorizontalRailEnabled}" IsHorizontalScrollChainingEnabled="{TemplateBinding ScrollViewer.IsHorizontalScrollChainingEnabled}" IsVerticalScrollChainingEnabled="{TemplateBinding ScrollViewer.IsVerticalScrollChainingEnabled}" IsVerticalRailEnabled="{TemplateBinding ScrollViewer.IsVerticalRailEnabled}" IsDeferredScrollingEnabled="{TemplateBinding ScrollViewer.IsDeferredScrollingEnabled}" Padding="{TemplateBinding Padding}" TabNavigation="{TemplateBinding TabNavigation}" VerticalSnapPointsType="MandatorySingle" VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}" VerticalScrollMode="{TemplateBinding ScrollViewer.VerticalScrollMode}" ZoomMode="Disabled">
                                 <ItemsPresenter />
                             </ScrollViewer>
-                            <Button x:Name="PreviousButtonHorizontal"  HorizontalAlignment="Left" Height="220" IsTabStop="False" Template="{StaticResource HorizontalPreviousTemplate}" UseSystemFocusVisuals="False" VerticalAlignment="Center" Width="1"/>
-                            <Button x:Name="NextButtonHorizontal"  HorizontalAlignment="Right" Height="220" IsTabStop="False" Template="{StaticResource HorizontalNextTemplate}" UseSystemFocusVisuals="False" VerticalAlignment="Center" Width="1"/>
-                            <Button x:Name="PreviousButtonVertical"  HorizontalAlignment="Center" Height="20" IsTabStop="False" Template="{StaticResource VerticalPreviousTemplate}" UseSystemFocusVisuals="False" VerticalAlignment="Top" Width="1"/>
-                            <Button x:Name="NextButtonVertical"  HorizontalAlignment="Center" Height="20" IsTabStop="False" Template="{StaticResource VerticalNextTemplate}" UseSystemFocusVisuals="False" VerticalAlignment="Bottom" Width="1"/>
+                            <Button x:Name="PreviousButtonHorizontal"  HorizontalAlignment="Left" Height="220" IsTabStop="False" Template="{StaticResource HorizontalPreviousTemplate}"  VerticalAlignment="Center" Width="1"/>
+                            <Button x:Name="NextButtonHorizontal"  HorizontalAlignment="Right" Height="220" IsTabStop="False" Template="{StaticResource HorizontalNextTemplate}"  VerticalAlignment="Center" Width="1"/>
+                            <Button x:Name="PreviousButtonVertical"  HorizontalAlignment="Center" Height="20" IsTabStop="False" Template="{StaticResource VerticalPreviousTemplate}"  VerticalAlignment="Top" Width="1"/>
+                            <Button x:Name="NextButtonVertical"  HorizontalAlignment="Center" Height="20" IsTabStop="False" Template="{StaticResource VerticalNextTemplate}"  VerticalAlignment="Bottom" Width="1"/>
                         </Grid>
                     </ControlTemplate>
                 </Setter.Value>
