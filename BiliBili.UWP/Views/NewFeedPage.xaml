@@ -605,7 +605,6 @@
         <Pivot 
             Style="{StaticResource PivotHeaderCenterStyle}" 
             x:Name="pivot_home" 
-         
             SelectionChanged="pivot_home_SelectionChanged" 
             ItemTemplateSelector="{StaticResource ResourceKey=homeDataTemplateSelector}">
             <Pivot.HeaderTemplate>
