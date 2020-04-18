@@ -1067,15 +1067,6 @@ namespace BiliBili.UWP
         public static bool Get_DMBorder()
         {
             return true;
-            container = ApplicationData.Current.LocalSettings;
-            if (container.Values["DMBorder"] != null)
-            {
-                return (bool)container.Values["DMBorder"];
-            }
-            else
-            {
-                return true;
-            }
         }
 
         public static void Set_DMBorder(bool value)
@@ -1891,6 +1882,28 @@ namespace BiliBili.UWP
 
 
         #region 直播弹幕
+
+
+        public static bool Get_LDanmuStatus()
+        {
+            container = ApplicationData.Current.LocalSettings;
+            if (container.Values["LDanmuStatus"] != null)
+            {
+                return (bool)container.Values["LDanmuStatus"];
+            }
+            else
+            {
+                Set_LDanmuStatus(true);
+                return true;
+            }
+        }
+
+        public static void Set_LDanmuStatus(bool value)
+        {
+            container = ApplicationData.Current.LocalSettings;
+            container.Values["LDanmuStatus"] = value;
+        }
+
         public static double Get_LDMSize()
         {
             container = ApplicationData.Current.LocalSettings;

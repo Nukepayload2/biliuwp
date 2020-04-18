@@ -5,6 +5,7 @@ using BiliBili.UWP.Pages;
 using BiliBili.UWP.Pages.FindMore;
 using BiliBili.UWP.Pages.Live;
 using BiliBili.UWP.Pages.Music;
+using BiliBili.UWP.Pages.User;
 using BiliBili.UWP.Views;
 using System;
 using System.Collections.Generic;
@@ -114,11 +115,7 @@ namespace BiliBili.UWP
         }
 
 
-        public static void ShowMiniVideo(string vid)
-        {
-            MiniVideoDialog miniVideoDialog = new MiniVideoDialog();
-            miniVideoDialog.ShowAsync(vid);
-        }
+     
 
         /// <summary>
         ///统一处理Url
@@ -159,7 +156,7 @@ namespace BiliBili.UWP
              * 视频BV号
              * https://www.bilibili.com/video/BV1EE411w75R
              */
-            var video_bv = Utils.RegexMatch(url, @"BV([a-zA-Z0-9]{5,})");
+            var video_bv = Utils.RegexMatch(url, @"[Bb][Vv]([a-zA-Z0-9]{5,})");
             if (video_bv != "")
             {
                 InfoNavigateToEvent(typeof(VideoViewPage), video_bv);
@@ -238,13 +235,13 @@ namespace BiliBili.UWP
              * bilibili://clip/1399466
              */
 
-            var clip = Utils.RegexMatch(url.Replace("vc=", "clip").Replace("vc.bilibili.com/video", "clip").Replace("/", ""), @"clip(\d+)");
-            if (clip != "")
-            {
-                MiniVideoDialog miniVideoDialog = new MiniVideoDialog();
-                miniVideoDialog.ShowAsync(clip);
-                return true;
-            }
+            //var clip = Utils.RegexMatch(url.Replace("vc=", "clip").Replace("vc.bilibili.com/video", "clip").Replace("/", ""), @"clip(\d+)");
+            //if (clip != "")
+            //{
+            //    MiniVideoDialog miniVideoDialog = new MiniVideoDialog();
+            //    miniVideoDialog.ShowAsync(clip);
+            //    return true;
+            //}
 
 
             /*
@@ -314,7 +311,7 @@ namespace BiliBili.UWP
             var user = Utils.RegexMatch(url.Replace("space.bilibili.com", "space").Replace("author", "space").Replace("/", ""), @"space(\d+)");
             if (user != "")
             {
-                InfoNavigateToEvent(typeof(UserInfoPage), user);
+                InfoNavigateToEvent(typeof(UserCenterPage), user);
                 return true;
             }
             /*

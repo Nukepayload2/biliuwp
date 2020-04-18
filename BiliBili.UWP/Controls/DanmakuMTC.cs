@@ -60,7 +60,7 @@ namespace BiliBili.UWP.Controls
             }
             catch (Exception ex)
             {
-                LogHelper.WriteLog(ex);
+                LogHelper.WriteLog("定时隐藏播放控制器出错", LogType.ERROR ,ex);
             }
 
         }
@@ -73,7 +73,7 @@ namespace BiliBili.UWP.Controls
             }
             catch (Exception ex)
             {
-                LogHelper.WriteLog(ex);
+                LogHelper.WriteLog("更新播放器时间出错", LogType.ERROR, ex);
             }
 
         }
@@ -160,7 +160,7 @@ namespace BiliBili.UWP.Controls
             }
             catch (Exception ex)
             {
-                LogHelper.WriteLog(ex);
+                LogHelper.WriteLog("初始化播放控制器失败", LogType.ERROR, ex);
             }
 
         }
@@ -409,11 +409,16 @@ namespace BiliBili.UWP.Controls
 
         private void CloseOpenDanmaku_Click(object sender, RoutedEventArgs e)
         {
+            OpenOrCloseDanmaku();
+        }
+        public void OpenOrCloseDanmaku()
+        {
+            var btn = (GetTemplateChild("btn_danmaku") as AppBarButton);
             if (myDanmaku.Visibility == Visibility.Visible)
             {
                 myDanmaku.ClearAll();
                 myDanmaku.Visibility = Visibility.Collapsed;
-                (sender as AppBarButton).Icon = new BitmapIcon() { UriSource = new Uri("ms-appx:///Assets/PlayerAssets/ic_player_danmaku_input_options_rl_disabled.png") };
+                btn.Icon = new BitmapIcon() { UriSource = new Uri("ms-appx:///Assets/PlayerAssets/ic_player_danmaku_input_options_rl_disabled.png") };
                 if (OpenDanmaku != null)
                 {
                     OpenDanmaku(this, false);
@@ -424,7 +429,7 @@ namespace BiliBili.UWP.Controls
             {
                 myDanmaku.ClearAll();
                 myDanmaku.Visibility = Visibility.Visible;
-                (sender as AppBarButton).Icon = new BitmapIcon() { UriSource = new Uri("ms-appx:///Assets/PlayerAssets/ic_player_danmaku_input_options_rl_checked.png") };
+                btn.Icon = new BitmapIcon() { UriSource = new Uri("ms-appx:///Assets/PlayerAssets/ic_player_danmaku_input_options_rl_checked.png") };
                 if (OpenDanmaku != null)
                 {
                     OpenDanmaku(this, true);
@@ -432,7 +437,6 @@ namespace BiliBili.UWP.Controls
                 }
             }
         }
-
         private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
             if (ExitPlayer != null)

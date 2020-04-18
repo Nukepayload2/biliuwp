@@ -1,4 +1,5 @@
-﻿using BiliBili.UWP.Views;
+﻿using BiliBili.UWP.Pages.User;
+using BiliBili.UWP.Views;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -119,7 +120,7 @@ namespace BiliBili.UWP.Pages
             switch (info.Tag.ToString())
             {
                 case "yh":
-                    MessageCenter.SendNavigateTo(NavigateMode.Info, typeof(UserInfoPage));
+                    MessageCenter.SendNavigateTo(NavigateMode.Info, typeof(UserCenterPage));
                     break;
                 case "dt":
                     MessageCenter.SendNavigateTo(NavigateMode.Home, typeof(AttentionPage));
@@ -154,7 +155,7 @@ namespace BiliBili.UWP.Pages
                     MessageCenter.SendNavigateTo(NavigateMode.Info, typeof(RankPage));
                     break;
                 case "part":
-                    MessageCenter.SendNavigateTo(NavigateMode.Home, typeof(HomePage));
+                    MessageCenter.SendNavigateTo(NavigateMode.Home, typeof(ChannelPage));
                     break;
                 default:
                     break;

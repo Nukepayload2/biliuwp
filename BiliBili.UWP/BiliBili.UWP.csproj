@@ -91,6 +91,7 @@
     <ErrorReport>prompt</ErrorReport>
     <Prefer32Bit>true</Prefer32Bit>
     <UseDotNetNativeToolchain>false</UseDotNetNativeToolchain>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <OutputPath>bin\x64\Release\</OutputPath>
@@ -214,6 +215,14 @@
     <None Include="BiliBili3_StoreKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Api\ApiRequest.cs" />
+    <Compile Include="Api\ApiUtils.cs" />
+    <Compile Include="Api\Home\HomeAPI.cs" />
+    <Compile Include="Api\Home\HotAPI.cs" />
+    <Compile Include="Api\Home\RecommendAPI.cs" />
+    <Compile Include="Api\SearchAPI.cs" />
+    <Compile Include="Api\User\DynamicAPI.cs" />
+    <Compile Include="Api\User\UserCenterAPI.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
@@ -232,9 +241,6 @@
       <DependentUpon>CommentV2Control.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\DanmakuMTC.cs" />
-    <Compile Include="Controls\DanmuPlayer.xaml.cs">
-      <DependentUpon>DanmuPlayer.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Controls\DynamicControls.xaml.cs">
       <DependentUpon>DynamicControls.xaml</DependentUpon>
     </Compile>
@@ -257,14 +263,7 @@
     <Compile Include="Controls\MessageToast.xaml.cs">
       <DependentUpon>MessageToast.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\MiniVideoDialog.xaml.cs">
-      <DependentUpon>MiniVideoDialog.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\MyDanmaku.xaml.cs" />
     <Compile Include="Controls\OrientedSize.cs" />
-    <Compile Include="Controls\PlayerControl.xaml.cs">
-      <DependentUpon>PlayerControl.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Controls\RepostDialog.xaml.cs">
       <DependentUpon>RepostDialog.xaml</DependentUpon>
     </Compile>
@@ -276,18 +275,19 @@
       <DependentUpon>VideoProcessingDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\WrapPanel.cs" />
+    <Compile Include="Converters\ColorConvert.cs" />
+    <Compile Include="Converters\DatetimeConvert.cs" />
     <Compile Include="Converters\DisplayConvert.cs" />
     <Compile Include="Converters\ImageCompressionConvert.cs" />
     <Compile Include="Converters\ImageSourceConvert.cs" />
+    <Compile Include="Converters\NumberToStringConvert.cs" />
     <Compile Include="Helper\ApiHelper.cs" />
     <Compile Include="Helper\AppHelper.cs" />
     <Compile Include="Helper\BiliLiveDanmu.cs" />
-    <Compile Include="Helper\DownloadHelper.cs" />
     <Compile Include="Helper\DownloadHelper2.cs" />
     <Compile Include="Helper\DynamicJObject.cs" />
     <Compile Include="Helper\ExceptionHandler.cs" />
     <Compile Include="Helper\LogHelper.cs" />
-    <Compile Include="Helper\MD5.cs" />
     <Compile Include="Helper\MediaProcessing.cs" />
     <Compile Include="Helper\MessageCenter.cs" />
     <Compile Include="Helper\MusicHelper.cs" />
@@ -314,18 +314,23 @@
     <Compile Include="Modules\Account.cs" />
     <Compile Include="Modules\Download.cs" />
     <Compile Include="Modules\Emote.cs" />
+    <Compile Include="Modules\Home\HotVM.cs" />
+    <Compile Include="Modules\Home\RecommendVM.cs" />
+    <Compile Include="Modules\Home\TopicVM.cs" />
     <Compile Include="Modules\LiveArea.cs" />
     <Compile Include="Modules\LiveCommand.cs" />
     <Compile Include="Modules\RelayCommand.cs" />
     <Compile Include="Modules\LiveHome.cs" />
+    <Compile Include="Modules\SearchVM.cs" />
     <Compile Include="Modules\SeasonFollow.cs" />
     <Compile Include="Modules\Channel.cs" />
-    <Compile Include="Modules\Home.cs" />
+    <Compile Include="Modules\Home\HomeVM.cs" />
     <Compile Include="Modules\IModules.cs" />
     <Compile Include="Modules\InteractionVideo.cs" />
     <Compile Include="Modules\LiveCenter.cs" />
     <Compile Include="Modules\LiveRoom.cs" />
     <Compile Include="Modules\ToView.cs" />
+    <Compile Include="Modules\UserCenterVM.cs" />
     <Compile Include="Pages\AddTagPage.xaml.cs">
       <DependentUpon>AddTagPage.xaml</DependentUpon>
     </Compile>
@@ -340,9 +345,6 @@
     </Compile>
     <Compile Include="Pages\Download2Page.xaml.cs">
       <DependentUpon>Download2Page.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\DownloadPage.xaml.cs">
-      <DependentUpon>DownloadPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\DynamicInfoPage.xaml.cs">
       <DependentUpon>DynamicInfoPage.xaml</DependentUpon>
@@ -362,8 +364,17 @@
     <Compile Include="Pages\FindMore\FeedbackPage.xaml.cs">
       <DependentUpon>FeedbackPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\FuckMSPage.xaml.cs">
-      <DependentUpon>FuckMSPage.xaml</DependentUpon>
+    <Compile Include="Pages\Home\HomePage.xaml.cs">
+      <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Home\HomeTopicPage.xaml.cs">
+      <DependentUpon>HomeTopicPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Home\HotPage.xaml.cs">
+      <DependentUpon>HotPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Home\RecommendPage.xaml.cs">
+      <DependentUpon>RecommendPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Live\LiveMyMedalPage.xaml.cs">
       <DependentUpon>LiveMyMedalPage.xaml</DependentUpon>
@@ -443,6 +454,9 @@
     <Compile Include="Pages\PlayerPage.xaml.cs">
       <DependentUpon>PlayerPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\SearchV2Page.xaml.cs">
+      <DependentUpon>SearchV2Page.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\SubjectPage.xaml.cs">
       <DependentUpon>SubjectPage.xaml</DependentUpon>
     </Compile>
@@ -452,7 +466,9 @@
     <Compile Include="Pages\User\MyQrPage.xaml.cs">
       <DependentUpon>MyQrPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\PartsPage.xaml.cs" />
+    <Compile Include="Pages\PartsPage.xaml.cs">
+      <DependentUpon>PartsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\QRPage.xaml.cs">
       <DependentUpon>QRPage.xaml</DependentUpon>
     </Compile>
@@ -516,6 +532,9 @@
     <Compile Include="Pages\User\ToViewPage.xaml.cs">
       <DependentUpon>ToViewPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\User\UserCenterPage.xaml.cs">
+      <DependentUpon>UserCenterPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\VideoViewPage.xaml.cs">
       <DependentUpon>VideoViewPage.xaml</DependentUpon>
     </Compile>
@@ -535,20 +554,14 @@
     <Compile Include="Views\FindPage.xaml.cs">
       <DependentUpon>FindPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\HomePage.xaml.cs">
-      <DependentUpon>HomePage.xaml</DependentUpon>
+    <Compile Include="Views\ChannelPage.xaml.cs">
+      <DependentUpon>ChannelPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LivePage.xaml.cs">
       <DependentUpon>LivePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LiveV2Page.xaml.cs">
       <DependentUpon>LiveV2Page.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\NewFeedPage.xaml.cs">
-      <DependentUpon>NewFeedPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\PartPage.xaml.cs">
-      <DependentUpon>PartPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SettingPage.xaml.cs">
       <DependentUpon>SettingPage.xaml</DependentUpon>
@@ -710,10 +723,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\DanmuPlayer.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Controls\DynamicControls.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -739,18 +748,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\MessageToast.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Controls\MiniVideoDialog.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Controls\MyDanmaku.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Controls\PlayerControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -794,10 +791,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\DownloadPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Pages\DynamicInfoPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -822,7 +815,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\FuckMSPage.xaml">
+    <Page Include="Pages\Home\HomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Home\HomeTopicPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Home\HotPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Home\RecommendPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -930,6 +935,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\SearchV2Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\SubjectPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -1030,6 +1039,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\User\UserCenterPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\VideoViewPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -1086,7 +1099,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\HomePage.xaml">
+    <Page Include="Views\ChannelPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -1095,14 +1108,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\LiveV2Page.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\NewFeedPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\PartPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -1117,9 +1122,6 @@
     </SDKReference>
     <SDKReference Include="Microsoft.VCLibs.120, Version=14.0">
       <Name>Microsoft Visual C++ 2013 Runtime Package for Windows Universal</Name>
-    </SDKReference>
-    <SDKReference Include="ShanYe MediaPlayer Engine %28Windows 10 UWP%29, Version=1.0.7">
-      <Name>ShanYe MediaPlayer Engine %28Windows 10 UWP%29</Name>
     </SDKReference>
     <SDKReference Include="WindowsMobile, Version=10.0.18362.0">
       <Name>Windows Mobile Extensions for the UWP</Name>
@@ -1161,11 +1163,20 @@
     <PackageReference Include="Newtonsoft.Json">
       <Version>12.0.3</Version>
     </PackageReference>
+    <PackageReference Include="NLog">
+      <Version>4.7.0</Version>
+    </PackageReference>
+    <PackageReference Include="NLog.Config">
+      <Version>4.7.0</Version>
+    </PackageReference>
     <PackageReference Include="PullToRefresh.UWP">
       <Version>0.3.4</Version>
     </PackageReference>
     <PackageReference Include="sqlite-net-pcl">
       <Version>1.6.292</Version>
+    </PackageReference>
+    <PackageReference Include="SYEngine.uwp">
+      <Version>1.0.7</Version>
     </PackageReference>
     <PackageReference Include="VLC.MediaElement">
       <Version>3.1.0.1</Version>
